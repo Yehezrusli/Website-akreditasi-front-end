@@ -44,7 +44,7 @@ class Header extends React.Component {
                                     <Link to="/">
                                         <img src={logo} alt="Logo" width="50%" />
                                     </Link>
-                                    <h1 className="text-white font-weight-light mt-3">Laporan Kinerja Program Studi</h1>
+                                    <h1 className="text-white font-weight-light my-3">Laporan Kinerja Program Studi</h1>
                                 </div>
                             </Col>
                         </Row>
@@ -54,13 +54,121 @@ class Header extends React.Component {
                     <Navbar color="light" light expand="md">
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav navbar>
+                            <Nav className="ml-auto mr-auto" navbar>
                                 <NavItem>
-                                    <NavLink tag={Link} to="/tataPamong">Tata Pamong</NavLink>
+                                    <NavLink tag={Link} to="/tataPamong">1. Tata Pamong</NavLink>
                                 </NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        2. Mahasiswa
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <Link to="/inputMahasiswa">
+                                            <DropdownItem>
+                                                a. Kualitas Input Mahasiswa
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/mahasiswaAsing">
+                                            <DropdownItem>
+                                                b. Mahasiswa Asing
+                                            </DropdownItem>
+                                        </Link>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        3. SDM
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <Link to="/profilDosen">
+                                            <DropdownItem>
+                                                a. Profil Dosen
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/kinerjaDosen">
+                                            <DropdownItem>
+                                                b. Kinerja Dosen
+                                            </DropdownItem>
+                                        </Link>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
                                 <NavItem>
-                                    <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                                    <NavLink tag={Link} to="/keuanganSarana">4. Keuangan & Sarana</NavLink>
                                 </NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        5. Pendidikan
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <Link to="/kurikulum">
+                                            <DropdownItem>
+                                                a. Kurikulum
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/Penelitian">
+                                            <DropdownItem>
+                                                b. Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/kepuasanMahasiswa">
+                                            <DropdownItem>
+                                                b. Kepuasan Mahasiswa
+                                            </DropdownItem>
+                                        </Link>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        6. Penelitian
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <Link to="/melibatkanMahasiswa">
+                                            <DropdownItem>
+                                                a. Penelitian DTPS yang melibatkan mahasiswa
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/rujukanDisertasi">
+                                            <DropdownItem>
+                                                b. Penelitian DTPS yang menjadi rujukan tema tesis/disertasi
+                                            </DropdownItem>
+                                        </Link>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                                <NavItem>
+                                    <NavLink tag={Link} to="/pengabdianMasyarakat">7. Pengabdian Masyarakat</NavLink>
+                                </NavItem>
+                                <UncontrolledDropdown nav inNavbar>
+                                    <DropdownToggle nav caret>
+                                        8. Luaran dan Capaian Tridharma
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <Link to="/capaianPembelajaran">
+                                            <DropdownItem>
+                                                a. Capaian Pembelajaran
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/prestasiMahasiswa">
+                                            <DropdownItem>
+                                                b. Prestasi Mahasiswa
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/produktivitas">
+                                            <DropdownItem>
+                                                c. Efektivitas dan Produktivitas Pendidikan
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/dayaSaing">
+                                            <DropdownItem>
+                                                d. Daya Saing Lulusan
+                                            </DropdownItem>
+                                        </Link>
+                                        <Link to="/kinerjaLulusan">
+                                            <DropdownItem>
+                                                e. Kinerja Lulusan
+                                            </DropdownItem>
+                                        </Link>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
                             </Nav>
                         </Collapse>
                     </Navbar>
