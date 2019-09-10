@@ -44,7 +44,7 @@ class Header extends React.Component {
                                     <Link to="/">
                                         <img src={logo} alt="Logo" width="50%" />
                                     </Link>
-                                    <h1 className="text-white font-weight-light my-3">Laporan Kinerja Program Studi</h1>
+                                    <h1 className="text-white font-weight-light my-3">Laporan Kinerja Program Studi 2020</h1>
                                 </div>
                             </Col>
                         </Row>

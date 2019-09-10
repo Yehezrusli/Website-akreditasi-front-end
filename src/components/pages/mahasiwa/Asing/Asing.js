@@ -15,7 +15,7 @@ class Asing extends Component {
         <h3 className="text-black font-weight-light my-5 text-center">Tabel 2.b Mahasiswa Asing (Foreign Student)</h3>
       </div>
       <Container>
-        <Table striped bordered className="text-center">
+        <Table striped bordered responsive className="text-center">
           <thead>
             <tr>
               <th class="align-middle" rowSpan = "2">No</th>
