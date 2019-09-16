@@ -30,27 +30,27 @@ class Profil extends Component {
         <Nav tabs>
           <NavItem>
             <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
-              Tabel 3.a.1 Dosen Tetap Pengampuan Program Studi
+              T 3.a.1 Dosen Tetap Pengampuan Program Studi
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }}>
-              Tabel 3.a.2 Ekuivalen Waktu Mengajar Dosen
+              T 3.a.2 Ekuivalen Waktu Mengajar Dosen
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }}>
-              Tabel 3.a.3 Dosen Tidak Tetap  Pengampuan Program Studi
+              T 3.a.3 Dosen Tidak Tetap  Pengampuan Program Studi
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }}>
-              Tabel 3.a.4 Dosen Pembimbing Utama Tugas Akhir
+              T 3.a.4 Dosen Pembimbing Utama Tugas Akhir
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className={classnames({ active: this.state.activeTab === '5' })} onClick={() => { this.toggle('5'); }}>
-              Tabel 3.a.5 Dosen Industri/Praktisi
+              T 3.a.5 Dosen Industri/Praktisi
             </NavLink>
           </NavItem>
         </Nav>
@@ -247,7 +247,6 @@ class Profil extends Component {
                     </tr>
                   </tbody>
                 </Table>
-
               </Container>
             </div>
           </TabPane>

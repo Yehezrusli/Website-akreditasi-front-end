@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './TataPamong.css';
 import { Table } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
 class TataPamong extends Component {
@@ -39,7 +41,7 @@ class TataPamong extends Component {
                 <th scope="row">1</th>
                 <td>Own Games</td>
                 <td></td>
-                <td>V</td>
+                <td><FontAwesomeIcon icon={faCheck} /></td>
                 <td></td>
                 <td>Kerjasama Pendidikan</td>
                 <td>Menambah relasi dan kinerja alumni</td>
