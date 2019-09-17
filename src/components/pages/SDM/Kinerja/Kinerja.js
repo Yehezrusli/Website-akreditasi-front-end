@@ -160,7 +160,7 @@ class Kinerja extends Component {
             </div>
           </TabPane>
           <TabPane tabId="2">
-          <div>
+            <div>
               <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.2) Penelitian DTPS</h3>
             </div>
             <div className="cont_limit">
@@ -288,7 +288,7 @@ class Kinerja extends Component {
             </div>
           </TabPane>
           <TabPane tabId="4">
-          <div>
+            <div>
               <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.4) Publikasi Ilmiah DTPS</h3>
             </div>
             <div className="cont_limit">
@@ -401,7 +401,7 @@ class Kinerja extends Component {
             </div>
           </TabPane>
           <TabPane tabId="8">
-          <div>
+            <div>
               <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.4) Pagelaran/pameran/presentasi/publikasi Ilmiah DTPS</h3>
             </div>
             <div className="cont_limit">

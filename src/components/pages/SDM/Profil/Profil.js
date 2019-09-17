@@ -5,16 +5,26 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames';
 import { Table } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
-
+import axios from "axios";
+import { When } from 'react-if';
 class Profil extends Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1'
+      activeTab: '1',
+      tabel3a1: []
     };
+  }
+
+  componentDidMount() {
+    axios.get('/back-end/index.php/api/tabel3a1').then(data => {
+      this.setState({ tabel3a1: data.data.result });
+    })
   }
 
   toggle(tab) {
@@ -25,6 +35,24 @@ class Profil extends Component {
     }
   }
   render() {
+    const { tabel3a1 } = this.state;
+    let tabel3 = tabel3a1.map((d, i) => <tr>
+      <td>{i + 1}</td>
+      <td>{d.NamaDosen}</td>
+      <td>{d.Pendidikan}</td>
+      <td>{d.BidangKeahlian}</td>
+      <td>{d.KesesuaianKompetensi}</td>
+      <td>{d.JabatanAkademik}</td>
+      <td>{d.SertifikatPendidik}</td>
+      <td>{d.SertifikatKompetensi}</td>
+      <td>{d.MataKuliahPSYangDiampu}</td>
+      <td>
+        <When condition={d.KesesuaianBidangKeahlian == "V"}>
+          <FontAwesomeIcon icon={faCheck} />
+        </When>
+      </td>
+      <td>{d.MataKuliahLuarPSYangDiampu}</td>
+    </tr>);
     return (
       <div>
         <Nav tabs>
@@ -65,79 +93,28 @@ class Profil extends Component {
                 <Table striped bordered className="text-center">
                   <thead>
                     <tr>
-                      <th class="align-middle">No.</th>
-                      <th class="align-middle">Nama Dosen</th>
-                      <th class="align-middle">Pendidikan Pasca Sarjana</th>
-                      <th class="align-middle">Bidang Keahlian</th>
-                      <th class="align-middle">Kesesuaian dengan Kompetensi Inti PS</th>
-                      <th class="align-middle">Jabatan Akademik</th>
-                      <th class="align-middle">Sertifikat Pendidikan Profesional</th>
-                      <th class="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
-                      <th class="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                      <th class="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
-                      <th class="align-middle">Mata Kuliah yang Diampu pada PS Lain</th>
+                      <th className="align-middle">No.</th>
+                      <th className="align-middle">Nama Dosen</th>
+                      <th className="align-middle">Pendidikan Pasca Sarjana</th>
+                      <th className="align-middle">Bidang Keahlian</th>
+                      <th className="align-middle">Kesesuaian dengan Kompetensi Inti PS</th>
+                      <th className="align-middle">Jabatan Akademik</th>
+                      <th className="align-middle">Sertifikat Pendidikan Profesional</th>
+                      <th className="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
+                      <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
+                      <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
+                      <th className="align-middle">Mata Kuliah yang Diampu pada PS Lain</th>
 
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Raymond Chandra Putra S.T., M.T</td>
-                      <td>Magister Informatika</td>
-                      <td>Rekayasa Perangkat Lunak</td>
-                      <td>Sesuai</td>
-                      <td>Kepala Laboratorium Informatika UNPAR</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>Rekaya Perangkat Lunak</td>
-                      <td>Sangat Sesuai</td>
-                      <td>Pemograman pada Perangkat Bergerak</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                    {tabel3}
                     <tr>
                       <th scope="row">Jumlah</th>
+                      <td>NDT={tabel3.length}</td>
                       <td></td>
                       <td></td>
-                      <td>NDTPS</td>
-                      <td></td>
+                      <td>NDTPS={tabel3.length}</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -160,23 +137,23 @@ class Profil extends Component {
                 <Table striped bordered className="text-center">
                   <thead>
                     <tr>
-                      <th class="align-middle" rowSpan="3">No.</th>
-                      <th class="align-middle" rowSpan="3">Nama Dosen</th>
-                      <th class="align-middle" rowSpan="3">DTPS</th>
-                      <th class="align-middle" colSpan="6">Ekuivalen Waktu Mengajar Penuh (EWMP) pada saat TS dalam satuan kredit semester (sks)</th>
-                      <th class="align-middle" rowSpan="3">Jumlah (sks)</th>
-                      <th class="align-middle" rowSpan="3">Rata-rata per Semester (sks)</th>
+                      <th className="align-middle" rowSpan="3">No.</th>
+                      <th className="align-middle" rowSpan="3">Nama Dosen</th>
+                      <th className="align-middle" rowSpan="3">DTPS</th>
+                      <th className="align-middle" colSpan="6">Ekuivalen Waktu Mengajar Penuh (EWMP) pada saat TS dalam satuan kredit semester (sks)</th>
+                      <th className="align-middle" rowSpan="3">Jumlah (sks)</th>
+                      <th className="align-middle" rowSpan="3">Rata-rata per Semester (sks)</th>
                     </tr>
                     <tr>
-                      <th class="align-middle" colSpan="3">Pendidikan: Pembelajaran dan Pembimbingan</th>
-                      <th class="align-middle" rowSpan="2">Penelitian</th>
-                      <th class="align-middle" rowSpan="2">PkM</th>
-                      <th class="align-middle" rowSpan="2">Tugas Tambahan dan/atau Penunjang</th>
+                      <th className="align-middle" colSpan="3">Pendidikan: Pembelajaran dan Pembimbingan</th>
+                      <th className="align-middle" rowSpan="2">Penelitian</th>
+                      <th className="align-middle" rowSpan="2">PkM</th>
+                      <th className="align-middle" rowSpan="2">Tugas Tambahan dan/atau Penunjang</th>
                     </tr>
                     <tr>
-                      <th class="align-middle">PS yang Diakreditasi</th>
-                      <th class="align-middle">PS Lain di dalam PT</th>
-                      <th class="align-middle">PS Lain di luar PT</th>
+                      <th className="align-middle">PS yang Diakreditasi</th>
+                      <th className="align-middle">PS Lain di dalam PT</th>
+                      <th className="align-middle">PS Lain di luar PT</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -260,15 +237,15 @@ class Profil extends Component {
                 <Table striped bordered className="text-center">
                   <thead>
                     <tr>
-                      <th class="align-middle">No.</th>
-                      <th class="align-middle">Nama Dosen</th>
-                      <th class="align-middle">Pendidikan Pasca Sarjana</th>
-                      <th class="align-middle">Bidang Keahlian</th>
-                      <th class="align-middle">Jabatan Akademik</th>
-                      <th class="align-middle">Sertifikat Pendidikan Profesional</th>
-                      <th class="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
-                      <th class="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                      <th class="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
+                      <th className="align-middle">No.</th>
+                      <th className="align-middle">Nama Dosen</th>
+                      <th className="align-middle">Pendidikan Pasca Sarjana</th>
+                      <th className="align-middle">Bidang Keahlian</th>
+                      <th className="align-middle">Jabatan Akademik</th>
+                      <th className="align-middle">Sertifikat Pendidikan Profesional</th>
+                      <th className="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
+                      <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
+                      <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
 
                     </tr>
                   </thead>
@@ -343,23 +320,23 @@ class Profil extends Component {
                 <Table striped bordered className="text-center">
                   <thead>
                     <tr>
-                      <th class="align-middle" rowSpan="3">No.</th>
-                      <th class="align-middle" rowSpan="3">Nama Dosen</th>
-                      <th class="align-middle" colSpan="6">Jumlah Mahasiswa yang Dibimbing</th>
-                      <th class="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan/Tahun</th>
-                      <th class="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan di seluruh Program/Tahun</th>
+                      <th className="align-middle" rowSpan="3">No.</th>
+                      <th className="align-middle" rowSpan="3">Nama Dosen</th>
+                      <th className="align-middle" colSpan="6">Jumlah Mahasiswa yang Dibimbing</th>
+                      <th className="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan/Tahun</th>
+                      <th className="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan di seluruh Program/Tahun</th>
                     </tr>
                     <tr>
-                      <th class="align-middle" colSpan="3">pada PS yang Diakreditasi</th>
-                      <th class="align-middle" colSpan="3">pada PS Lain pada Program yang sama di PT</th>
+                      <th className="align-middle" colSpan="3">pada PS yang Diakreditasi</th>
+                      <th className="align-middle" colSpan="3">pada PS Lain pada Program yang sama di PT</th>
                     </tr>
                     <tr>
-                      <th class="align-middle">TS-2</th>
-                      <th class="align-middle">TS-1</th>
-                      <th class="align-middle">TS</th>
-                      <th class="align-middle">TS-2</th>
-                      <th class="align-middle">TS-1</th>
-                      <th class="align-middle">TS</th>
+                      <th className="align-middle">TS-2</th>
+                      <th className="align-middle">TS-1</th>
+                      <th className="align-middle">TS</th>
+                      <th className="align-middle">TS-2</th>
+                      <th className="align-middle">TS-1</th>
+                      <th className="align-middle">TS</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -425,13 +402,13 @@ class Profil extends Component {
                 <Table striped bordered className="text-center">
                   <thead>
                     <tr>
-                      <th class="align-middle">No.</th>
-                      <th class="align-middle">Nama Dosen Industri/Praktisi</th>
-                      <th class="align-middle">Pendidikan Tertinggi</th>
-                      <th class="align-middle">Bidang Keahlian</th>
-                      <th class="align-middle">NIDK</th>
-                      <th class="align-middle">Mata Kuliah yang Diampu</th>
-                      <th class="align-middle">Bobot Akreditasi</th>
+                      <th className="align-middle">No.</th>
+                      <th className="align-middle">Nama Dosen Industri/Praktisi</th>
+                      <th className="align-middle">Pendidikan Tertinggi</th>
+                      <th className="align-middle">Bidang Keahlian</th>
+                      <th className="align-middle">NIDK</th>
+                      <th className="align-middle">Mata Kuliah yang Diampu</th>
+                      <th className="align-middle">Bobot Akreditasi</th>
                     </tr>
                   </thead>
                   <tbody>
