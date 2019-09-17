@@ -36,25 +36,25 @@ class Mahasiswa extends Component {
         <div className="TataPamong">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 6.a Penelitian DTPS yang melibatkan mahasiswa </h3>
         </div>
-        <Container>
-          <Table striped bordered responsive className="text-center">
-            <thead>
-              <tr>
-                <th class="align-middle">No.</th>
-                <th class="align-middle">Nama Dosen</th>
-                <th class="align-middle">Tema Penelitian Sesuai Roadmap</th>
-                <th class="align-middle">Nama Mahasiswa</th>
-                <th class="align-middle">Judul Kegiatan</th>
-                <th class="align-middle">Tahun</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tabel_6_a}
-            </tbody>
-          </Table>
-
-        </Container>
-
+        <div className="cont_limit">
+          <Container fluid="true">
+            <Table striped bordered responsive className="text-center">
+              <thead>
+                <tr>
+                  <th class="align-middle">No.</th>
+                  <th class="align-middle">Nama Dosen</th>
+                  <th class="align-middle">Tema Penelitian Sesuai Roadmap</th>
+                  <th class="align-middle">Nama Mahasiswa</th>
+                  <th class="align-middle">Judul Kegiatan</th>
+                  <th class="align-middle">Tahun</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tabel_6_a}
+              </tbody>
+            </Table>
+          </Container>
+        </div>
       </>
     )
   }
