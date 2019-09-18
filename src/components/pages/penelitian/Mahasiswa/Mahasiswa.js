@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import classnames from 'classnames';
 import { Table } from 'reactstrap';
-import { Container } from 'reactstrap'; import './Mahasiswa.css';
+import { Container } from 'reactstrap'; 
+import './Mahasiswa.css';
 import axios from "axios";
-import { If, Then, Else } from 'react-if';
 
 class Mahasiswa extends Component {
   constructor(props) {
@@ -35,7 +33,7 @@ class Mahasiswa extends Component {
       <>
         <div className="TataPamong">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 6.a Penelitian DTPS yang melibatkan mahasiswa </h3>
-        </div>
+        </div>  
         <div className="cont_limit">
           <Container fluid="true">
             <Table striped bordered responsive className="text-center">

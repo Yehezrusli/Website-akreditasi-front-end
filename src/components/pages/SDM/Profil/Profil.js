@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './Profil.css';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText } from 'reactstrap';
 import classnames from 'classnames';
@@ -7,7 +6,6 @@ import { Table } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-
 import axios from "axios";
 import { When } from 'react-if';
 class Profil extends Component {
@@ -124,12 +122,6 @@ class Profil extends Component {
       <td>{d.TSb}</td>
       <td>{d.Rata2}</td>
       <td>{d.Rata2b}</td>
-      <td>
-        <When condition={d.KesesuaianBidangKeahlian == "V"}>
-          <FontAwesomeIcon icon={faCheck} />
-        </When>
-      </td>
-      <td>{d.MataKuliahLuarPSYangDiampu}</td>
     </tr>);
 
     return (

@@ -12,7 +12,7 @@ class Input extends Component {
     return (
       <>
       <div className="TataPamong">
-        <h3 className="text-black font-weight-light my-5 text-center">Tabel 2.a. Seleksi Mahasiswa</h3>
+        <h3 className="text-black font-weight-light my-5 text-center">Tabel 2.a Seleksi Mahasiswa</h3>
       </div>
       <Container>
         <Table striped bordered className="text-center">
