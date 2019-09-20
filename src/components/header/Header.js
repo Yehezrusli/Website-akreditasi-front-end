@@ -167,6 +167,11 @@ class Header extends React.Component {
                                                 e. Kinerja Lulusan
                                             </DropdownItem>
                                         </Link>
+                                        <Link to="/penelitianPkm">
+                                            <DropdownItem>
+                                                f. Penelitian & PkM
+                                            </DropdownItem>
+                                        </Link>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                             </Nav>

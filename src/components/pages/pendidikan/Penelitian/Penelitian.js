@@ -29,7 +29,7 @@ class Penelitian extends Component {
     </tr>);
     return (
       <>
-        <div className="TataPamong">
+        <div className="Penelitian">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 5.b Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran </h3>
         </div>  
         <div className="cont_limit">

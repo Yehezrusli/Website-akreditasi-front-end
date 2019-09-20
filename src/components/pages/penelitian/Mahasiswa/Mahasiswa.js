@@ -31,7 +31,7 @@ class Mahasiswa extends Component {
 
     return (
       <>
-        <div className="TataPamong">
+        <div className="Mahasiswa">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 6.a Penelitian DTPS yang melibatkan mahasiswa </h3>
         </div>  
         <div className="cont_limit">

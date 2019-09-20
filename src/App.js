@@ -19,6 +19,7 @@ import DayaSaing from './components/pages/capaian/DayaSaing/DayaSaing';
 import KinerjaLulusan from './components/pages/capaian/KinerjaLulusan/KinerjaLulusan';
 import PrestasiMahasiswa from './components/pages/capaian/prestasiMahasiswa/PrestasiMahasiswa';
 import Produktivitas from './components/pages/capaian/Produktivitas/Produktivitas';
+import PenelitianPkm from './components/pages/capaian/PenelitianPkM/PenelitianPkM';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 
@@ -47,6 +48,7 @@ class App extends Component {
             <Route path="/dayaSaing" component={DayaSaing} />
             <Route path="/prestasiMahasiswa" component={PrestasiMahasiswa} />
             <Route path="/produktivitas" component={Produktivitas} />
+            <Route path="/penelitianPkm" component={PenelitianPkm} />
           </Switch>
         </Router>
       </div>
