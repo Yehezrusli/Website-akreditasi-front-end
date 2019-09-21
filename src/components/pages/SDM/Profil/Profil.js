@@ -165,7 +165,7 @@ class Profil extends Component {
                       <th className="align-middle">Bidang Keahlian</th>
                       <th className="align-middle">Kesesuaian dengan Kompetensi Inti PS</th>
                       <th className="align-middle">Jabatan Akademik</th>
-                      <th className="align-middle">Sertifikat Pendidikan Profesional</th>
+                      <th className="align-middle">Sertifikat Pendidik Profesional</th>
                       <th className="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
                       <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
                       <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
@@ -176,11 +176,11 @@ class Profil extends Component {
                   <tbody>
                     {tabel3}
                     <tr>
-                      <th scope="row">Jumlah</th>
-                      <td>NDT={tabel3.length}</td>
+                      <th scope="row">&Sigma;</th>
+                      <td><strong>NDT = </strong>{tabel3.length}</td>
                       <td></td>
                       <td></td>
-                      <td>NDTPS={tabel3.length}</td>
+                      <td><strong>NDTPS = </strong>{tabel3.length}</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -204,7 +204,7 @@ class Profil extends Component {
                   <thead>
                     <tr>
                       <th className="align-middle" rowSpan="3">No.</th>
-                      <th className="align-middle" rowSpan="3">Nama Dosen</th>
+                      <th className="align-middle" rowSpan="3">Nama Dosen (DT)</th>
                       <th className="align-middle" rowSpan="3">DTPS</th>
                       <th className="align-middle" colSpan="6">Ekuivalen Waktu Mengajar Penuh (EWMP) pada saat TS dalam satuan kredit semester (sks)</th>
                       <th className="align-middle" rowSpan="3">Jumlah (sks)</th>
@@ -225,12 +225,12 @@ class Profil extends Component {
                   <tbody>
                     {tabel3_a_2}
                     <tr>
-                      <td colSpan="9">Rata-rata DT</td>
-                      <td>{jumlah/tabel3_a_2.length}</td>
+                      <td colSpan="9"><strong>Rata-rata DT</strong></td>
+                      <td colSpan="2">{jumlah/tabel3_a_2.length}</td>
                     </tr>
                     <tr>
-                      <td colSpan="9">Rata-rata DTPS</td>
-                      <td>{jumlahdtps/dtps}</td>
+                      <td colSpan="9"><strong>Rata-rata DTPS</strong></td>
+                      <td colSpan="2">{jumlahdtps/dtps}</td>
                     </tr>
                   </tbody>
                 </Table>
@@ -252,8 +252,8 @@ class Profil extends Component {
                       <th className="align-middle">Pendidikan Pasca Sarjana</th>
                       <th className="align-middle">Bidang Keahlian</th>
                       <th className="align-middle">Jabatan Akademik</th>
-                      <th className="align-middle">Sertifikat Pendidikan Profesional</th>
-                      <th className="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
+                      <th className="align-middle">Sertifikat Pendidik Profesional</th>
+                      <th className="align-middle">Sertifikat Profesi/ Kompetensi/ Industri</th>
                       <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
                       <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
 
@@ -262,8 +262,13 @@ class Profil extends Component {
                   <tbody>
                     {tabel3_a_3}
                     <tr>
-                      <td colSpan="7">Jumlah</td>
-                      <td>NDTT = {tabel3_a_3.length}</td>
+                      <td><strong>&Sigma;</strong></td>
+                      <td><strong>NDTT = </strong>{tabel3_a_3.length}</td>
+                      <td colSpan="3"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </Table>

@@ -109,7 +109,7 @@ class Sarana extends Component {
                   <td></td>
                 </tr>
                 <tr>
-                  <td colSpan="2" className="text-center">Jumlah</td>
+                  <td colSpan="2" className="text-center"><strong>Jumlah</strong></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -144,7 +144,7 @@ class Sarana extends Component {
                   <td></td>
                 </tr>
                 <tr>
-                  <td colSpan="2" className="text-center">Jumlah</td>
+                  <td colSpan="2" className="text-center"><strong>Jumlah</strong></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -180,7 +180,7 @@ class Sarana extends Component {
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td>Biaya Investasi Prasana</td>
+                  <td>Biaya Investasi Prasarana</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -191,7 +191,7 @@ class Sarana extends Component {
                   <td></td>
                 </tr>
                 <tr>
-                  <td colSpan="2" className="text-center">Jumlah</td>
+                  <td colSpan="2" className="text-center"><strong>Jumlah</strong></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -202,7 +202,7 @@ class Sarana extends Component {
                   <td></td>
                 </tr>
                 <tr>
-                  <td colSpan="2" className="text-center">TOTAL</td>
+                  <td colSpan="2" className="text-center"><strong>TOTAL</strong></td>
                   <td></td>
                   <td></td>
                   <td></td>
