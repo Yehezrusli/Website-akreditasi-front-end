@@ -21,8 +21,8 @@ class Asing extends Component {
               <th class="align-middle" rowSpan = "2">No</th>
               <th class="align-middle" rowSpan = "2">Program Studi</th>
               <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Aktif</th>
-              <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Penuh Waktu (Full-time)</th>
-              <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Paruh Waktu (Part-time)</th>
+              <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Penuh Waktu (<i>Full-time</i>)</th>
+              <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Paruh Waktu (<i>Part-time</i>)</th>
             </tr>
             <tr>
               <th>TS-2</th>

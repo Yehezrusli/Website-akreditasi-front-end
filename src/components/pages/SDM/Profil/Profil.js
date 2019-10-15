@@ -203,20 +203,20 @@ class Profil extends Component {
                       {tabel3}
                       <tr>
                         <th scope="row">Jumlah</th>
-                        <td onClick={()=>{
-                            this.setState({
-                              tabelNamaDosen: tabel3a1,
-                              modal: true
-                            });
-                          }}>{tabel3.length}</td>
+                        <td onClick={() => {
+                          this.setState({
+                            tabelNamaDosen: tabel3a1,
+                            modal: true
+                          });
+                        }}>{tabel3.length}</td>
                         <td></td>
                         <td></td>
-                        <td onClick={()=>{
-                            this.setState({
-                              tabelNamaDosen: tabel3a1.filter(d=>d.KesesuaianKompetensi > 0),
-                              modal: true
-                            });
-                          }}>{totalKomptensi}</td>
+                        <td onClick={() => {
+                          this.setState({
+                            tabelNamaDosen: tabel3a1.filter(d => d.KesesuaianKompetensi > 0),
+                            modal: true
+                          });
+                        }}>{totalKomptensi}</td>
                         <td></td>
                         <td></td>
                         <td></td>

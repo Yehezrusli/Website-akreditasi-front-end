@@ -390,7 +390,7 @@ class Kinerja extends Component {
                     <tr>
                       <th class="align-middle">No.</th>
                       <th class="align-middle">Nama Dosen</th>
-                      <th class="align-middle">Judul Artikel yang Disistasi(Journal/Buku, Volume, Tahun, Nomor, Halaman)</th>
+                      <th class="align-middle">Judul Artikel yang Disitasi (Jurnal/Buku, Volume, Tahun, Nomor, Halaman)</th>
                       <th class="align-middle">Jumlah Sitasi</th>
                     </tr>
                   </thead>

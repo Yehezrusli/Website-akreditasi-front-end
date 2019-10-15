@@ -76,7 +76,7 @@ class Input extends Component {
               <td></td>
             </tr>
             <tr>
-              <th scope="row">Transfer</th>
+              <th scope="row">TS</th>
               <td></td>
               <td></td>
               <td></td>
@@ -87,10 +87,11 @@ class Input extends Component {
             </tr>
             <tr>
               <th scope="row" colSpan="2">Jumlah</th>
-              <td>1531</td>
-              <td>392</td>
-              <td>388</td>
-              <td>4</td>
+              <td><strong>NA = </strong>1531</td>
+              <td><strong>NB = </strong>392</td>
+              <td><strong>NC = </strong>388</td>
+              <td><strong>ND = </strong> 4</td>
+              <td colSpan="2"><strong>NM = </strong></td>
             </tr>
 
           </tbody>
