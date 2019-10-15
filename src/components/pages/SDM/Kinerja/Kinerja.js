@@ -3,9 +3,9 @@ import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 import { Table } from 'reactstrap';
 import { Container } from 'reactstrap';
-import './Kinerja.css';
 import axios from "axios";
 import { If, Then, Else } from 'react-if';
+import './Kinerja.css';
 
 
 class Kinerja extends Component {

@@ -49,6 +49,10 @@ class Mahasiswa extends Component {
               </thead>
               <tbody>
                 {tabel_6_a}
+                <tr>
+                  <td colSpan="5">Jumlah </td>
+                  <td></td>
+                </tr>
               </tbody>
             </Table>
           </Container>
