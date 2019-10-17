@@ -10,7 +10,6 @@ import Kinerja from './components/pages/SDM/Kinerja/Kinerja';
 import Sarana from './components/pages/sarana/Sarana';
 import Kepuasan from './components/pages/pendidikan/Kepuasan/Kepuasan';
 import Kurikulum from './components/pages/pendidikan/Kurikulum/Kurikulum';
-import Penelitian from './components/pages/pendidikan/Penelitian/Penelitian';
 import Mahasiswa from './components/pages/penelitian/Mahasiswa/Mahasiswa';
 import Disertasi from './components/pages/penelitian/Disertasi/Disertasi';
 import PengabdianMasyarakat from './components/pages/pengabdianMasyarakat/PengabdianMasyarakat';
@@ -39,7 +38,6 @@ class App extends Component {
             <Route path="/keuanganSarana" component={Sarana} />
             <Route path="/kepuasanMahasiswa" component={Kepuasan} />
             <Route path="/kurikulum" component={Kurikulum} />
-            <Route path="/penelitian" component={Penelitian} />
             <Route path="/melibatkanMahasiswa" component={Mahasiswa} />
             <Route path="/rujukanDisertasi" component={Disertasi} />
             <Route path="/pengabdianMasyarakat" component={PengabdianMasyarakat} />

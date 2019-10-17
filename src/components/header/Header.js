@@ -111,28 +111,14 @@ class Header extends React.Component {
                                         </Link>
                                         <Link to="/kepuasanMahasiswa">
                                             <DropdownItem>
-                                                b. Kepuasan Mahasiswa
+                                                c. Kepuasan Mahasiswa
                                             </DropdownItem>
                                         </Link>
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
-                                <UncontrolledDropdown nav inNavbar>
-                                    <DropdownToggle nav caret>
-                                        6. Penelitian
-                                    </DropdownToggle>
-                                    <DropdownMenu right>
-                                        <Link to="/melibatkanMahasiswa">
-                                            <DropdownItem>
-                                                a. Penelitian DTPS yang melibatkan mahasiswa
-                                            </DropdownItem>
-                                        </Link>
-                                        <Link to="/rujukanDisertasi">
-                                            <DropdownItem>
-                                                b. Penelitian DTPS yang menjadi rujukan tema tesis/disertasi
-                                            </DropdownItem>
-                                        </Link>
-                                    </DropdownMenu>
-                                </UncontrolledDropdown>
+                                <NavItem>
+                                    <NavLink tag={Link} to="/melibatkanMahasiswa">6. Penelitian melibatkan mahasiswa</NavLink>
+                                </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} to="/pengabdianMasyarakat">7. Pengabdian Masyarakat</NavLink>
                                 </NavItem>
