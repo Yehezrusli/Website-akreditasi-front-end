@@ -21,7 +21,7 @@ class Tabel3b2 extends Component {
   render() {
     const { tabel3b2 } = this.state;
     let tabel3_b_2 = tabel3b2.map((d, i) => <tr>
-      <If condition={d.sumberPembiayaan == "Jumlah"}>
+      <If condition={d.sumberPembiayaan === "Jumlah"}>
         <Then>
           <td colSpan="2">{d.sumberPembiayaan}</td>
           <td>{d.ts2}</td>

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import './Asing.css';
 import { Table } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 class Asing extends Component {
   constructor(props){

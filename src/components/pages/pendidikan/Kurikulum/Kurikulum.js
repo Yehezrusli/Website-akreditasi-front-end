@@ -1,47 +1,66 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Container, Col } from 'reactstrap';
 import axios from "axios";
+import { Input, FormGroup } from 'reactstrap';
 import './Kurikulum.css';
 
 class Kurikulum extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: ""
+    };
   }
+
+  update(e) {
+    this.setState({ name: e.target.value });
+    console.log(this.state.name);
+  }
+
   render() {
     return (
       <>
         <div className="Penelitian">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 5.a Kurikulum, Capaian Pembelajaran, dan Rencana Pembelajaran</h3>
         </div>
+
         <div className="cont_limit">
-          <Container fluid="true">
+          <Container fluid={true}>
+            <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen"/>
+                {this.state.name}
+              </FormGroup>
+            </Col>
             <Table striped bordered responsive className="text-center">
               <thead>
                 <tr>
-                  <th class="align-middle" rowSpan="2">No.</th>
-                  <th class="align-middle" rowSpan="2">Semester</th>
-                  <th class="align-middle" rowSpan="2">Kode Mata Kuliah</th>
-                  <th class="align-middle" rowSpan="2">Nama Mata Kuliah</th>
-                  <th class="align-middle" colSpan="3">Bobot Kredit (sks)</th>
-                  <th class="align-middle" rowSpan="2">Konversi Kredit ke Jam</th>
-                  <th class="align-middle" colSpan="4">Capaian Pembelajaran</th>
-                  <th class="align-middle" rowSpan="2">Dokumen Rencana Pembelajaran</th>
-                  <th class="align-middle" rowSpan="2">Unit Penyelengara</th>
+                  <th className="align-middle" rowSpan="2">No.</th>
+                  <th className="align-middle" rowSpan="2">Semester</th>
+                  <th className="align-middle" rowSpan="2">Kode Mata Kuliah</th>
+                  <th className="align-middle" rowSpan="2">Nama Mata Kuliah</th>
+                  <th className="align-middle" rowSpan="2">Mata Kuliah Kompetensi</th>
+                  <th className="align-middle" colSpan="3">Bobot Kredit (sks)</th>
+                  <th className="align-middle" rowSpan="2">Konversi Kredit ke Jam</th>
+                  <th className="align-middle" colSpan="4">Capaian Pembelajaran</th>
+                  <th className="align-middle" rowSpan="2">Dokumen Rencana Pembelajaran</th>
+                  <th className="align-middle" rowSpan="2">Unit Penyelengara</th>
                 </tr>
                 <tr>
-                  <th class="align-middle">Kuliah/Responsi/Tutorial</th>
-                  <th class="align-middle">Seminar</th>
-                  <th class="align-middle">Praktikum/Praktik/Praktik Lapangan</th>
-                  <th class="align-middle">Sikap</th>
-                  <th class="align-middle">Pengetahuan</th>
-                  <th class="align-middle">Keterampilan Umum</th>
-                  <th class="align-middle">Keterampilan Khusus</th>
+                  <th className="align-middle">Kuliah/Responsi/Tutorial</th>
+                  <th className="align-middle">Seminar</th>
+                  <th className="align-middle">Praktikum/Praktik/Praktik Lapangan</th>
+                  <th className="align-middle">Sikap</th>
+                  <th className="align-middle">Pengetahuan</th>
+                  <th className="align-middle">Keterampilan Umum</th>
+                  <th className="align-middle">Keterampilan Khusus</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -71,9 +90,11 @@ class Kurikulum extends Component {
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>3</td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -103,9 +124,12 @@ class Kurikulum extends Component {
                   <td></td>
                   <td></td>
                   <td></td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td colSpan="4">Jumlah</td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>

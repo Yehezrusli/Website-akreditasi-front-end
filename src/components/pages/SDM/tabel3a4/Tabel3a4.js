@@ -36,43 +36,40 @@ class Tabel3a4 extends Component {
     let tabel3_a_4 = tabel3a4.map((d, i) => <tr>
       <td>{d.Nomor}</td>
       <td>{d.NamaDosen}</td>
-      <td>{d['TS-2']}</td>
-      <td>{d['TS-1']}</td>
-      <td>{d.TS}</td>
-      <td>{d['TS-2b']}</td>
-      <td>{d['TS-1b']}</td>
-      <td>{d.TSb}</td>
-      <td>{d.Rata2}</td>
-      <td>{d.Rata2b}</td>
+      <td>{d.NIDN}</td>
+      <td>{d.Pendidikan}</td>
+      <td>{d.BidangKeahlian}</td>
+      <td>{d.JabatanAkademik}</td>
+      <td>{d.SertifikatPendidik}</td>
+      <td>{d.SertifikatKompetensi}</td>
+      <td>{d.MataKuliahPSYangDiampu}</td>
+      <td>
+          <When condition={d.KesesuaianBidangKeahlian == "V"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </When>
+      </td>
     </tr>);
 
     return (
       <>
         <div>
-          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.4 Dosen Pembimbing Utama Tugas Akhir</h3>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.4  Dosen Tidak Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi</h3>
         </div>
         <div className="cont_limit_tugas_akhir">
-          <Container fluid="true">
+          <Container fluid={true}>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
-                  <th className="align-middle" rowSpan="3">No.</th>
-                  <th className="align-middle" rowSpan="3">Nama Dosen</th>
-                  <th className="align-middle" colSpan="6">Jumlah Mahasiswa yang Dibimbing</th>
-                  <th className="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan/Tahun</th>
-                  <th className="align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan di seluruh Program/Tahun</th>
-                </tr>
-                <tr>
-                  <th className="align-middle" colSpan="3">pada PS yang Diakreditasi</th>
-                  <th className="align-middle" colSpan="3">pada PS Lain pada Program yang sama di PT</th>
-                </tr>
-                <tr>
-                  <th className="align-middle">TS-2</th>
-                  <th className="align-middle">TS-1</th>
-                  <th className="align-middle">TS</th>
-                  <th className="align-middle">TS-2</th>
-                  <th className="align-middle">TS-1</th>
-                  <th className="align-middle">TS</th>
+                  <th className="align-middle">No.</th>
+                  <th className="align-middle">Nama Dosen</th>
+                  <th className="align-middle">NIDN/NIDK</th>
+                  <th className="align-middle">Pendidikan Pasca Sarjana</th>
+                  <th className="align-middle">Bidang Keahlian</th>
+                  <th className="align-middle">Jabatan Akademik</th>
+                  <th className="align-middle">Sertifikat Pendidik Profesional</th>
+                  <th className="align-middle">Sertifikat Profesi/ Kompensasi/ Industri</th>
+                  <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
+                  <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yan Diampu</th>
                 </tr>
               </thead>
               <tbody>

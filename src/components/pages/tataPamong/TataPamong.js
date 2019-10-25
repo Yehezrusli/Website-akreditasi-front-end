@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './TataPamong.css';
 import { Table } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
@@ -17,9 +16,9 @@ class TataPamong extends Component {
         <div className="TataPamong">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 1 Kerjasama Tridharma</h3>
         </div>
-        <Container>
-          <Table striped bordered className="text-center">
-            <thead>
+        <Container className=" my-5">
+          <Table striped bordered>
+            <thead className="text-center">
               <tr>
                 <th class="align-middle" rowSpan = "2">No.</th>
                 <th class="align-middle" rowSpan = "2">Lembaga Mitra</th>
@@ -33,10 +32,12 @@ class TataPamong extends Component {
                 <th>Internasional</th>
                 <th>Nasional</th>
                 <th>Lokal/Wilayah</th>
-
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <th colSpan="9">Pendidikan</th>
+              </tr>
               <tr>
                 <th scope="row">1</th>
                 <td>Own Games</td>
@@ -87,14 +88,118 @@ class TataPamong extends Component {
                 <td></td>
                 <td>1</td>
                 <td></td>
-
               </tr>
-
+              <tr>
+                <th colSpan="9">Penelitian</th>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Own Games</td>
+                <td></td>
+                <td><FontAwesomeIcon icon={faCheck} /></td>
+                <td></td>
+                <td>Kerjasama Pendidikan</td>
+                <td>Menambah relasi dan kinerja alumni</td>
+                <td>2016 - 2019</td>
+                <td>Piagam Kerjasama</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Jumlah</th>
+                <td>1</td>
+                <td></td>
+                <td>1</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th colSpan="9">Pengabdian Kepada Masyarakat</th>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>Own Games</td>
+                <td></td>
+                <td><FontAwesomeIcon icon={faCheck} /></td>
+                <td></td>
+                <td>Kerjasama Pendidikan</td>
+                <td>Menambah relasi dan kinerja alumni</td>
+                <td>2016 - 2019</td>
+                <td>Piagam Kerjasama</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Jumlah</th>
+                <td>1</td>
+                <td></td>
+                <td>1</td>
+                <td></td>
+              </tr>
             </tbody>
           </Table>
-
         </Container>
-
       </>
     )
   }

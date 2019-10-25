@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Container, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
 import { When } from 'react-if';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Input, FormGroup } from 'reactstrap';
+
 import './Tabel3a1.css';
 
 class Tabel3a1 extends Component {
   constructor(props) {
     super(props);
-
     this.toggleModal = this.toggleModal.bind(this);
-
     this.state = {
       tabel3a1: [],
+      tabel3a1Filtered: [],
       modal: false,
-      tabelNamaDosen: []
+      tabelNamaDosen: [],
+      name: ""
     };
   }
-  toggleModal(){
+  toggleModal() {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
@@ -28,20 +30,35 @@ class Tabel3a1 extends Component {
 
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3a1').then(data => {
-      this.setState({ tabel3a1: data.data.result });
+      this.setState({ tabel3a1: data.data.result, tabel3a1Filtered: data.data.result });
     })
   }
+
+  update(e) {
+    // this.setState({ name: e.target.value });
+    // console.log(this.state.name);
+    var x = this.state.tabel3a;
+    let searchQuery = e.target.value;
+    let regexer = new RegExp(searchQuery, "i");
+    console.log("UKULELE", searchQuery);
+    this.setState({
+      tabel3a1Filtered: this.state.tabel3a1.filter(d => searchQuery.length == 0 || d.NamaDosen.match(regexer) || d.NIDN.includes(searchQuery))
+    });
+  }
+
   render() {
-    const { tabel3a1, tabelNamaDosen } = this.state;
+    const {tabel3a1, tabel3a1Filtered, tabelNamaDosen } = this.state;
     let totalKomptensi = 0;
-    let tabel3 = tabel3a1.map((d, i) => {
+    let tabel3 = tabel3a1Filtered.map((d, i) => {
       if (d.KesesuaianKompetensi == 'V') {
         totalKomptensi++;
       }
       return <tr>
         <td>{i + 1}</td>
         <td>{d.NamaDosen}</td>
+        <td>{d.NIDN}</td>
         <td>{d.Pendidikan}</td>
+        <td>{d.Pendidikan_doctor}</td>
         <td>{d.BidangKeahlian}</td>
         <td>
           <When condition={d.KesesuaianKompetensi == "V"}>
@@ -75,21 +92,31 @@ class Tabel3a1 extends Component {
               pengampu mata kuliah di Program Studi yang diakreditasi</h3>
         </div>
         <div className="cont_limit">
-          <Container fluid="true">
+          <Container fluid={true}>
+            <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+              </FormGroup>
+            </Col>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
-                  <th className="align-middle">No.</th>
-                  <th className="align-middle">Nama Dosen</th>
-                  <th className="align-middle">Pendidikan Pasca Sarjana</th>
-                  <th className="align-middle">Bidang Keahlian</th>
-                  <th className="align-middle">Kesesuaian dengan Kompetensi Inti PS</th>
-                  <th className="align-middle">Jabatan Akademik</th>
-                  <th className="align-middle">Sertifikat Pendidikan Profesional</th>
-                  <th className="align-middle">Sertifikat Kompetensi/ Profesi/ Industri</th>
-                  <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                  <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
-                  <th className="align-middle">Mata Kuliah yang Diampu pada PS Lain</th>
+                  <th className="align-middle" rowSpan="2">No.</th>
+                  <th className="align-middle" rowSpan="2">Nama Dosen</th>
+                  <th className="align-middle" rowSpan="2">NIDN/NIDK</th>
+                  <th className="align-middle" colSpan="2">Pendidikan Pasca Sarjana</th>
+                  <th className="align-middle" rowSpan="2">Bidang Keahlian</th>
+                  <th className="align-middle" rowSpan="2">Kesesuaian dengan Kompetensi Inti PS</th>
+                  <th className="align-middle" rowSpan="2">Jabatan Akademik</th>
+                  <th className="align-middle" rowSpan="2">Sertifikat Pendidikan Profesional</th>
+                  <th className="align-middle" rowSpan="2">Sertifikat Kompetensi/ Profesi/ Industri</th>
+                  <th className="align-middle" rowSpan="2">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
+                  <th className="align-middle" rowSpan="2">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
+                  <th className="align-middle" rowSpan="2">Mata Kuliah yang Diampu pada PS Lain</th>
+                </tr>
+                <tr>
+                  <th className="align-middle">Magister/ Magister Terapan/Spesialis</th>
+                  <th className="align-middle">Doktor/ Doktor Terapan/Spesialis</th>
                 </tr>
               </thead>
               <tbody>

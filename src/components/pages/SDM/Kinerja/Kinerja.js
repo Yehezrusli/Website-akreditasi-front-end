@@ -8,8 +8,7 @@ import Tabel3b3 from '../tabel3b3/Tabel3b3';
 import Tabel3b4 from '../tabel3b4/Tabel3b4';
 import Tabel3b5 from '../tabel3b5/Tabel3b5';
 import Tabel3b6 from '../tabel3b6/Tabel3b6';
-
-
+import Tabel3b7 from '../tabel3b7/Tabel3b7';
 
 class Kinerja extends Component {
   constructor(props) {
@@ -72,6 +71,13 @@ class Kinerja extends Component {
             >T 3.b.6 Karya Ilmiah
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '7' })}
+              onClick={() => { this.toggle('7'); }}
+            >T 3.b.7. Luaran Penelitian/PkM
+            </NavLink>
+          </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
@@ -91,6 +97,9 @@ class Kinerja extends Component {
           </TabPane>
           <TabPane tabId="5">
             <Tabel3b5 />
+          </TabPane>
+          <TabPane tabId="7">
+            <Tabel3b7 />
           </TabPane>
         </TabContent>
       </div>

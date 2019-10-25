@@ -104,7 +104,7 @@ class Header extends React.Component {
                                                 a. Kurikulum
                                             </DropdownItem>
                                         </Link>
-                                        <Link to="/Penelitian">
+                                        <Link to="/penelitianPendidikan">
                                             <DropdownItem>
                                                 b. Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran
                                             </DropdownItem>
