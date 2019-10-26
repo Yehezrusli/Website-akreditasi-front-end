@@ -20,7 +20,7 @@ class Kepuasan extends Component {
                 <tr>
                   <th class="align-middle" rowSpan="2">No.</th>
                   <th class="align-middle" rowSpan="2">Aspek yang Diukur</th>
-                  <th class="align-middle" colSpan="4">Tingkat Kepuasan Mahasiswa</th>
+                  <th class="align-middle" colSpan="4">Tingkat Kepuasan Mahasiswa (%)</th>
                   <th class="align-middle" rowSpan="2">Rencana Tidak Lanjut oleh UPPS/PS</th>
                 </tr>
                 <tr>

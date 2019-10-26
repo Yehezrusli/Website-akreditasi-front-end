@@ -108,7 +108,7 @@ class Tabel3a1 extends Component {
                   <th className="align-middle" rowSpan="2">Bidang Keahlian</th>
                   <th className="align-middle" rowSpan="2">Kesesuaian dengan Kompetensi Inti PS</th>
                   <th className="align-middle" rowSpan="2">Jabatan Akademik</th>
-                  <th className="align-middle" rowSpan="2">Sertifikat Pendidikan Profesional</th>
+                  <th className="align-middle" rowSpan="2">Sertifikat Pendidik Profesional</th>
                   <th className="align-middle" rowSpan="2">Sertifikat Kompetensi/ Profesi/ Industri</th>
                   <th className="align-middle" rowSpan="2">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
                   <th className="align-middle" rowSpan="2">Kesesuaian Bidang Keahlian dengan Mata  Kuliah yang Diampu</th>
@@ -132,14 +132,14 @@ class Tabel3a1 extends Component {
                   }}>{tabel3.length}</td>
                   <td></td>
                   <td></td>
+                  <td></td>
+                  <td></td>
                   <td onClick={() => {
                     this.setState({
                       tabelNamaDosen: tabel3a1.filter(d => d.KesesuaianKompetensi == "V"),
                       modal: true
                     });
                   }}>{totalKomptensi}</td>
-                  <td></td>
-                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>

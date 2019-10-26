@@ -69,7 +69,7 @@ class Tabel3a4 extends Component {
                   <th className="align-middle">Sertifikat Pendidik Profesional</th>
                   <th className="align-middle">Sertifikat Profesi/ Kompensasi/ Industri</th>
                   <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                  <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yan Diampu</th>
+                  <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>
                 </tr>
               </thead>
               <tbody>

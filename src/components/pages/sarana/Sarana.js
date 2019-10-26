@@ -51,7 +51,7 @@ class Sarana extends Component {
               <thead className="text-center">
                 <tr>
                   <th class="align-middle" rowSpan="2">No.</th>
-                  <th class="align-middle" rowSpan="2">Jenis Kepengurusan</th>
+                  <th class="align-middle" rowSpan="2">Jenis Penggunaan</th>
                   <th class="align-middle" colSpan="4">Unit Pengelola Program Studi (Rp.)</th>
                   <th class="align-middle" colSpan="4">Program Studi (Rp.)</th>
                 </tr>

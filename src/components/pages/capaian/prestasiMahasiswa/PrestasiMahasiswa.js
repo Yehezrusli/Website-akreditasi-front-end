@@ -91,8 +91,8 @@ class PrestasiMahasiswa extends Component {
                       <th class="align-middle" rowSpan="2">No.</th>
                       <th class="align-middle" rowSpan="2">Nama Kegiatan</th>
                       <th class="align-middle" rowSpan="2">Tahun Perolehan</th>
-                      <th class="align-middle" rowSpan="2">Tingkat</th>
-                      <th class="align-middle" colSpan="3">Prestasi yang Dicapai</th>
+                      <th class="align-middle" colSpan="3">Tingkat</th>
+                      <th class="align-middle" rowSpan="2">Prestasi yang Dicapai</th>
                     </tr>
                     <tr>
                       <th class="align-middle">Lokal/Wilayah</th>
@@ -160,8 +160,8 @@ class PrestasiMahasiswa extends Component {
                       <th class="align-middle" rowSpan="2">No.</th>
                       <th class="align-middle" rowSpan="2">Nama Kegiatan</th>
                       <th class="align-middle" rowSpan="2">Tahun Perolehan</th>
-                      <th class="align-middle" rowSpan="2">Tingkat</th>
-                      <th class="align-middle" colSpan="3">Prestasi yang Dicapai</th>
+                      <th class="align-middle" colSpan="3">Tingkat</th>
+                      <th class="align-middle" rowSpan="2">Prestasi yang Dicapai</th>
                     </tr>
                     <tr>
                       <th class="align-middle">Lokal/Wilayah</th>
