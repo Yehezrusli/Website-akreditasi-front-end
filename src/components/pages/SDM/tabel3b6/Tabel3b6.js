@@ -8,32 +8,24 @@ class Tabel3b6 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabel3b5: []
+      tabel3b6: []
     };
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3b5').then(data => {
-      this.setState({ tabel3b5: data.data.result });
+    axios.get('/back-end/index.php/api/tabel3b6').then(data => {
+      this.setState({ tabel3b6: data.data.result });
     })
   }
 
   render() {
-    const { tabel3b5 } = this.state;
-    let tabel3_b_5 = tabel3b5.map((d5, j) => <tr>
-      <If condition={d5.JudulLuaran === "Jumlah"}>
-        <Then>
-          <td colSpan="2" className="text-center">{d5.JudulLuaran}</td>
-          <td>{d5.tahun}</td>
-          <td>{d5.keterangan}</td>
-        </Then>
-        <Else>
-          <td>{d5.Nomor}</td>
-          <td>{d5.JudulLuaran}</td>
-          <td>{d5.tahun}</td>
-          <td>{d5.keterangan}</td>
-        </Else>
-      </If>
-    </tr>);
+    const { tabel3b6 } = this.state;
+    let tabel3_b_6 = tabel3b6.map((d6, j) => <tr>
+      <td>{j+1}</td>
+      <td>{d6.NamaDosen}</td>
+      <td>{d6.NamaProduk}</td>
+      <td>{d6.Deskrispi}</td>
+      <td>{d6.Bukti}</td>
+    </tr >);
 
     return (
       <>
@@ -46,13 +38,14 @@ class Tabel3b6 extends Component {
               <thead className="text-center">
                 <tr>
                   <th class="align-middle">No.</th>
-                  <th class="align-middle">Judul Luaran Penelitian/PkM</th>
-                  <th class="align-middle">Tahun</th>
-                  <th class="align-middle">Keterangan</th>
+                  <th class="align-middle">Nama Dosen</th>
+                  <th class="align-middle">Nama Produk/Jasa</th>
+                  <th class="align-middle">Deskripsi Produk/Jasa</th>
+                  <th class="align-middle">Bukti</th>
                 </tr>
               </thead>
               <tbody>
-                {tabel3_b_5}
+                {tabel3_b_6}
               </tbody>
             </Table>
           </Container>
