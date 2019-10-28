@@ -30,23 +30,20 @@ class Home extends Component {
           <Chart chartType="BarChart" width="100%" height="400px" data={data} />
         </Col>
 
-        <Col md={6} style={{float: "left"}}>
+        <Col md={6} style={{ float: "left" }}>
           <Chart
-            width={'500px'}
-            height={'300px'}
             chartType="BarChart"
             loader={<div>Loading Chart</div>}
             data={[
-              ['City', '2010 Population', '2000 Population'],
-              ['New York City, NY', 8175000, 8008000],
-              ['Los Angeles, CA', 3792000, 3694000],
-              ['Chicago, IL', 2695000, 2896000],
-              ['Houston, TX', 2099000, 1953000],
-              ['Philadelphia, PA', 1526000, 1517000],
+              ['Sumber Pembiayaan', 'Jumlah'],
+              ['Perguruan Tingga dan Mandiri', 100],
+              ['Lembaga dalam Negeri', 500],
+              ['Lembaga Luar Negeri', 30],
+              ['Jumlah', 70]
             ]}
             options={{
               title: 'Population of Largest U.S. Cities',
-              chartArea: { width: '50%' },
+              chartArea: { width: '70%' },
               hAxis: {
                 title: 'Total Population',
                 minValue: 0,
@@ -56,6 +53,32 @@ class Home extends Component {
               },
             }}
             // For tests
+            rootProps={{ 'data-testid': '1' }}
+          />
+        </Col>
+
+        <Col style={{ float: "left" }}>
+          <Chart
+            chartType="BarChart"
+            loader={<div>Loading Chart</div>}
+            data={[
+              ['Sumber Pembiayaan', 'Jumlah'],
+              ['Perguruan Tingga dan Mandiri', 100],
+              ['Lembaga dalam Negeri', 500],
+              ['Lembaga Luar Negeri', 30],
+              ['Jumlah', 70]
+            ]}
+            options={{
+              title: 'Pembiyaan TS2',
+              chartArea: { width: '100%' },
+              hAxis: {
+                title: 'Data',
+                minValue: 0,
+              },
+              vAxis: {
+                title: 'Sumber Pembiayaan',
+              },
+            }}
             rootProps={{ 'data-testid': '1' }}
           />
         </Col>

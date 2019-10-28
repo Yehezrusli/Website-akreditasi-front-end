@@ -71,11 +71,10 @@ class Tabel3b2 extends Component {
         <div className="cont_limit">
           <Container fluid="true">
             <Button color="primary" className="grafik" onClick={() => {
-              console.log("masuk");
               this.setState({
                 modal: true
               });
-            }}>Tampilkan Grafik</Button>
+            }}>Grafik</Button>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
@@ -115,7 +114,7 @@ class Tabel3b2 extends Component {
                     ]}
                     options={{
                       title: 'Pembiyaan TS2',
-                      chartArea: { width: '100%' },
+                      chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
                         minValue: 0,
@@ -130,18 +129,19 @@ class Tabel3b2 extends Component {
                     loader={<div>Loading Chart</div>}
                     data={[
                       ['Sumber Pembiayaan', 'Jumlah'],
-                      ['Perguruan Tingga dan Mandiri', ts1[0]],
+                      ['Perguruan Tinggi dan Mandiri', ts1[0]],
                       ['Lembaga dalam Negeri', ts1[1]],
                       ['Lembaga Luar Negeri', ts1[2]],
                       ['Jumlah', ts1[3]],
                     ]}
                     options={{
                       title: 'Pembiyaan TS1',
-                      chartArea: { width: '100%' },
+                      chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
                         minValue: 0,
                       },
+
                     }}
                     rootProps={{ 'data-testid': '1' }}
                   />
@@ -152,14 +152,14 @@ class Tabel3b2 extends Component {
                     loader={<div>Loading Chart</div>}
                     data={[
                       ['Sumber Pembiayaan', 'Jumlah'],
-                      ['Perguruan Tingga dan Mandiri', ts[0]],
+                      ['Perguruan Tinggi dan Mandiri', ts[0]],
                       ['Lembaga dalam Negeri', ts[1]],
                       ['Lembaga Luar Negeri', ts[2]],
                       ['Jumlah', ts[3]],
                     ]}
                     options={{
                       title: 'Pembiyaan TS',
-                      chartArea: { width: '100%' },
+                      chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
                         minValue: 0,
@@ -174,14 +174,14 @@ class Tabel3b2 extends Component {
                     loader={<div>Loading Chart</div>}
                     data={[
                       ['Sumber Pembiayaan', 'Jumlah'],
-                      ['Perguruan Tingga dan Mandiri', jumlah[0]],
+                      ['Perguruan Tinggi dan Mandiri', jumlah[0]],
                       ['Lembaga dalam Negeri', jumlah[1]],
                       ['Lembaga Luar Negeri', jumlah[2]],
                       ['Jumlah', jumlah[3]],
                     ]}
                     options={{
                       title: 'Jumlah',
-                      chartArea: { width: '100%' },
+                      chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
                         minValue: 0,
@@ -190,19 +190,19 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col style={{ float: 'left' }}>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
                       ['Sumber Pembiayaan', 'ts2', 'ts1', 'ts', 'jumlah'],
-                      ['Perguruan Tingga dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
+                      ['Perguruan Tinggi dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
                       ['Lembaga dalam Negeri', ts2[1], ts1[1], ts[1], jumlah[1]],
                       ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
                     ]}
                     options={{
                       title: 'Perbandingan TS2, TS1, TS, dan Jumlah',
-                      chartArea: { width: '100%' },
+                      chartArea: { width: '70%' },
                       hAxis: {
                         title: 'Data',
                         minValue: 0,
@@ -214,7 +214,7 @@ class Tabel3b2 extends Component {
               </Container>
             </ModalBody>
           </Modal>
-        </div>
+        </div >
       </>
     )
   }

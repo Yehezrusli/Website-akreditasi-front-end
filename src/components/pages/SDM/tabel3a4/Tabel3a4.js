@@ -32,8 +32,13 @@ class Tabel3a4 extends Component {
     })
   }
   render() {
+    var sesuai = 0;
     const { tabel3a4 } = this.state;
-    let tabel3_a_4 = tabel3a4.map((d, i) => <tr>
+    let tabel3_a_4 = tabel3a4.map((d, i) =>{
+      if(d.KesesuaianBidangKeahlian == 'V'){
+        sesuai+=1;
+      }
+      return <tr>
       <td>{d.Nomor}</td>
       <td>{d.NamaDosen}</td>
       <td>{d.NIDN}</td>
@@ -48,7 +53,7 @@ class Tabel3a4 extends Component {
             <FontAwesomeIcon icon={faCheck} />
           </When>
       </td>
-    </tr>);
+    </tr>});
 
     return (
       <>
@@ -74,6 +79,15 @@ class Tabel3a4 extends Component {
               </thead>
               <tbody>
                 {tabel3_a_4}
+                <tr>
+                  <td>Jumlah</td>
+                  <td>{tabel3_a_4.length}</td>
+                  <td colSpan="4"></td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td></td>
+                  <td>{sesuai}</td>
+                </tr>
               </tbody>
             </Table>
           </Container>

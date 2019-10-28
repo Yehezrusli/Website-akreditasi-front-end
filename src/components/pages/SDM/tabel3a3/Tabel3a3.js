@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
 import { When } from 'react-if';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap'; import './Tabel3a3.css';
 
 class Tabel3a3 extends Component {
   constructor(props) {
@@ -30,25 +29,43 @@ class Tabel3a3 extends Component {
   }
 
   render() {
+    var dt = 0;
+    var dtps = 0;
+    var jumlahSKSDT = 0;
+    var meanDT = 0;
+    var meanDTPS = 0;
+    var jumlahSKSDTPS = 0;
     const { tabel3a3 } = this.state;
-    let tabel3_a_3 = tabel3a3.map((d, i) => <tr>
-      <td>{i+1}</td>
-      <td>{d.Nama}</td>
-      <td>
+    let tabel3_a_3 = tabel3a3.map((d, i) => {
+      dt = dt + 1;
+      meanDT += d.Rata2;
+      jumlahSKSDT = jumlahSKSDT + d.Jumlah;
+      if (d.isDTPS == "1") {
+        dtps = dtps + 1;
+        meanDTPS += d.Rata2;
+        jumlahSKSDTPS = jumlahSKSDTPS + d.Jumlah;
+      }
+
+      return <tr>
+        <td>{i + 1}</td>
+        <td>{d.Nama}</td>
+        <td>
           <When condition={d.isDTPS == "1"}>
             <FontAwesomeIcon icon={faCheck} />
           </When>
-      </td>
-      <td>{d.PembelajaranPS}</td>
-      <td>{d.PembelajaranPSLain}</td>
-      <td>{d.PembelajaranPSLuar}</td>
-      <td>{d.Penelitian}</td>
-      <td>{d.Pkm}</td>
-      <td>{d.Tambahan}</td>
-      <td>{d.Jumlah}</td>
-      <td>{d.Rata2}</td>
-
-    </tr>);
+        </td>
+        <td>{d.PembelajaranPS}</td>
+        <td>{d.PembelajaranPSLain}</td>
+        <td>{d.PembelajaranPSLuar}</td>
+        <td>{d.Penelitian}</td>
+        <td>{d.Pkm}</td>
+        <td>{d.Tambahan}</td>
+        <td>{d.Jumlah}</td>
+        <td>{d.Rata2}</td>
+      </tr>
+    });
+    console.log(jumlahSKSDT);
+    console.log(jumlahSKSDTPS);
     return (
       <>
         <div>
@@ -82,13 +99,13 @@ class Tabel3a3 extends Component {
                 {tabel3_a_3}
                 <tr>
                   <td colSpan="9">Rata-rata DT</td>
-                  <td></td>
-                  <td></td>
+                  <td>{jumlahSKSDT / dt}</td>
+                  <td>{meanDT / dt}</td>
                 </tr>
                 <tr>
                   <td colSpan="9">Rata-rata DTPS</td>
-                  <td></td>
-                  <td></td>
+                  <td>{jumlahSKSDTPS / dtps}</td>
+                  <td>{meanDTPS / dtps}</td>
                 </tr>
               </tbody>
             </Table>
