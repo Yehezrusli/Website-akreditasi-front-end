@@ -17,13 +17,16 @@ class Tabel3b5 extends Component {
     })
   }
   render() {
+    var jumlah = 0;
     const { tabel3b5 } = this.state;
-    let tabel3_b_5 = tabel3b5.map((d, i) => <tr>
+    let tabel3_b_5 = tabel3b5.map((d, i) =>{
+      jumlah += d.JumlahSitasi;
+      return <tr>
       <td>{i + 1}</td>
       <td>{d.NamaDosen}</td>
       <td className="text-left">{d.JudulArtikel}</td>
       <td>{d.JumlahSitasi}</td>
-    </tr>);
+    </tr>});
     return (
       <>
         <div>
@@ -42,6 +45,11 @@ class Tabel3b5 extends Component {
               </thead>
               <tbody>
                 {tabel3_b_5}
+                <tr>
+                  <td colSpan="2">Jumlah</td>
+                  <td>{tabel3_b_5.length}</td>
+                  <td>{jumlah}</td>
+                </tr>
               </tbody>
             </Table>
           </Container>

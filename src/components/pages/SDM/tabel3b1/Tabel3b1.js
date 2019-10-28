@@ -22,29 +22,43 @@ class Tabel3b1 extends Component {
   }
 
   render() {
+    var wilayah = 0;
+    var nasional = 0;
+    var internasional = 0;
     const { tabel3b1 } = this.state;
-    let tabel3_b_1 = tabel3b1.map((d, i) => <tr>
-      <td>{d.Nomor}</td>
-      <td>{d.NamaDosen}</td>
-      <td>{d["Bidang Keahlian"]}</td>
-      <td>{d.Rekognisi}</td>
-      <td>
-        <When condition={d.Wilayah == "V"}>
-          <FontAwesomeIcon icon={faCheck} />
-        </When>
-      </td>
-      <td>
-        <When condition={d.Nasional == "V"}>
-          <FontAwesomeIcon icon={faCheck} />
-        </When>
-      </td>
-      <td>
-        <When condition={d.Internasional == "V"}>
-          <FontAwesomeIcon icon={faCheck} />
-        </When>
-      </td>
-      <td>{d.Tahun}</td>
-    </tr>);
+    let tabel3_b_1 = tabel3b1.map((d, i) => {
+      if (d.Wilayah == "V") {
+        wilayah += 1;
+      }
+      if (d.Nasional == "V") {
+        nasional += 1;
+      }
+      if (d.Internasional == "V") {
+        internasional += 1;
+      }
+      return <tr>
+        <td>{d.Nomor}</td>
+        <td>{d.NamaDosen}</td>
+        <td>{d["Bidang Keahlian"]}</td>
+        <td>{d.Rekognisi}</td>
+        <td>
+          <When condition={d.Wilayah == "V"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </When>
+        </td>
+        <td>
+          <When condition={d.Nasional == "V"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </When>
+        </td>
+        <td>
+          <When condition={d.Internasional == "V"}>
+            <FontAwesomeIcon icon={faCheck} />
+          </When>
+        </td>
+        <td>{d.Tahun}</td>
+      </tr>
+    });
     return (
       <>
         <div>
@@ -70,6 +84,12 @@ class Tabel3b1 extends Component {
               </thead>
               <tbody>
                 {tabel3_b_1}
+                <tr>
+                  <td colSpan="4">Jumlah</td>
+                  <td>{wilayah}</td>
+                  <td>{nasional}</td>
+                  <td>{internasional}</td>
+                </tr>
               </tbody>
             </Table>
           </Container>
