@@ -98,117 +98,119 @@ class Tabel3b2 extends Component {
         </div>
 
         <div>
-          <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+          <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggleModal}>Grafik Pembiayaan Penelitian DTPS</ModalHeader>
             <ModalBody>
               <Container>
-                <Chart
-                  chartType="BarChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Sumber Pembiayaan', 'Jumlah'],
-                    ['Perguruan Tingga dan Mandiri', ts2[0]],
-                    ['Lembaga dalam Negeri', ts2[1]],
-                    ['Lembaga Luar Negeri', ts2[2]],
-                    ['Jumlah', ts2[3]],
-                  ]}
-                  options={{
-                    title: 'Pembiyaan TS2',
-                    chartArea: { width: '100%' },
-                    hAxis: {
-                      title: 'Data',
-                      minValue: 0,
-                    },
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
-                />
-              </Container>
-              <Container>
-                <Chart
-                  chartType="BarChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Sumber Pembiayaan', 'Jumlah'],
-                    ['Perguruan Tingga dan Mandiri', ts1[0]],
-                    ['Lembaga dalam Negeri', ts1[1]],
-                    ['Lembaga Luar Negeri', ts1[2]],
-                    ['Jumlah', ts1[3]],
-                  ]}
-                  options={{
-                    title: 'Pembiyaan TS1',
-                    chartArea: { width: '100%' },
-                    hAxis: {
-                      title: 'Data',
-                      minValue: 0,
-                    },
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
-                />
-              </Container>
-              <Container>
-                <Chart
-                  chartType="BarChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Sumber Pembiayaan', 'Jumlah'],
-                    ['Perguruan Tingga dan Mandiri', ts[0]],
-                    ['Lembaga dalam Negeri', ts[1]],
-                    ['Lembaga Luar Negeri', ts[2]],
-                    ['Jumlah', ts[3]],
-                  ]}
-                  options={{
-                    title: 'Pembiyaan TS',
-                    chartArea: { width: '100%' },
-                    hAxis: {
-                      title: 'Data',
-                      minValue: 0,
-                    },
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
-                />
-              </Container>
-              <Container>
-                <Chart
-                  chartType="BarChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Sumber Pembiayaan', 'Jumlah'],
-                    ['Perguruan Tingga dan Mandiri', jumlah[0]],
-                    ['Lembaga dalam Negeri', jumlah[1]],
-                    ['Lembaga Luar Negeri', jumlah[2]],
-                    ['Jumlah', jumlah[3]],
-                  ]}
-                  options={{
-                    title: 'Jumlah',
-                    chartArea: { width: '100%' },
-                    hAxis: {
-                      title: 'Data',
-                      minValue: 0,
-                    },
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
-                />
-              </Container>
-              <Container>
-                <Chart
-                  chartType="BarChart"
-                  loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Sumber Pembiayaan', 'ts2', 'ts1', 'ts', 'jumlah'],
-                    ['Perguruan Tingga dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
-                    ['Lembaga dalam Negeri', ts2[1], ts1[1], ts[1], jumlah[1]],
-                    ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
-                  ]}
-                  options={{
-                    title: 'Jumlah',
-                    chartArea: { width: '100%' },
-                    hAxis: {
-                      title: 'Data',
-                      minValue: 0,
-                    },
-                  }}
-                  rootProps={{ 'data-testid': '1' }}
-                />
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Perguruan Tingga dan Mandiri', ts2[0]],
+                      ['Lembaga dalam Negeri', ts2[1]],
+                      ['Lembaga Luar Negeri', ts2[2]],
+                      ['Jumlah', ts2[3]],
+                    ]}
+                    options={{
+                      title: 'Pembiyaan TS2',
+                      chartArea: { width: '100%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Perguruan Tingga dan Mandiri', ts1[0]],
+                      ['Lembaga dalam Negeri', ts1[1]],
+                      ['Lembaga Luar Negeri', ts1[2]],
+                      ['Jumlah', ts1[3]],
+                    ]}
+                    options={{
+                      title: 'Pembiyaan TS1',
+                      chartArea: { width: '100%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Perguruan Tingga dan Mandiri', ts[0]],
+                      ['Lembaga dalam Negeri', ts[1]],
+                      ['Lembaga Luar Negeri', ts[2]],
+                      ['Jumlah', ts[3]],
+                    ]}
+                    options={{
+                      title: 'Pembiyaan TS',
+                      chartArea: { width: '100%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Perguruan Tingga dan Mandiri', jumlah[0]],
+                      ['Lembaga dalam Negeri', jumlah[1]],
+                      ['Lembaga Luar Negeri', jumlah[2]],
+                      ['Jumlah', jumlah[3]],
+                    ]}
+                    options={{
+                      title: 'Jumlah',
+                      chartArea: { width: '100%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Sumber Pembiayaan', 'ts2', 'ts1', 'ts', 'jumlah'],
+                      ['Perguruan Tingga dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
+                      ['Lembaga dalam Negeri', ts2[1], ts1[1], ts[1], jumlah[1]],
+                      ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
+                    ]}
+                    options={{
+                      title: 'Perbandingan TS2, TS1, TS, dan Jumlah',
+                      chartArea: { width: '100%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
               </Container>
             </ModalBody>
           </Modal>
