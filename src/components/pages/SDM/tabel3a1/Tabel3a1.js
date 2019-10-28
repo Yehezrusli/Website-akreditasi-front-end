@@ -7,7 +7,6 @@ import axios from "axios";
 import { When } from 'react-if';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Input, FormGroup } from 'reactstrap';
-
 import './Tabel3a1.css';
 
 class Tabel3a1 extends Component {
@@ -21,6 +20,8 @@ class Tabel3a1 extends Component {
       tabelNamaDosen: [],
       name: ""
     };
+    this.toggleModal = this.toggleModal.bind(this);
+
   }
   toggleModal() {
     this.setState(prevState => ({
@@ -151,7 +152,6 @@ class Tabel3a1 extends Component {
           </Container>
         </div>
         <div>
-          {/* <Button color="danger" onClick={this.toggleModal}>Hallo</Button> */}
           <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggleModal}>Nama Dosen Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang diakreditasi</ModalHeader>
             <ModalBody>
