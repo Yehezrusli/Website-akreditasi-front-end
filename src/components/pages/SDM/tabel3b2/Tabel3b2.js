@@ -106,14 +106,14 @@ class Tabel3b2 extends Component {
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tingga dan Mandiri', ts2[0]],
                       ['Lembaga dalam Negeri', ts2[1]],
                       ['Lembaga Luar Negeri', ts2[2]],
                       ['Jumlah', ts2[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS2',
+                      title: 'Pembiyaan TS-2',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -128,14 +128,14 @@ class Tabel3b2 extends Component {
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tinggi dan Mandiri', ts1[0]],
                       ['Lembaga dalam Negeri', ts1[1]],
                       ['Lembaga Luar Negeri', ts1[2]],
                       ['Jumlah', ts1[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS1',
+                      title: 'Pembiyaan TS-1',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -151,7 +151,7 @@ class Tabel3b2 extends Component {
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tinggi dan Mandiri', ts[0]],
                       ['Lembaga dalam Negeri', ts[1]],
                       ['Lembaga Luar Negeri', ts[2]],
@@ -195,13 +195,13 @@ class Tabel3b2 extends Component {
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'ts2', 'ts1', 'ts', 'jumlah'],
+                      ['Sumber Pembiayaan', 'TS-2', 'TS-1', 'TS', 'Jumlah Total'],
                       ['Perguruan Tinggi dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
                       ['Lembaga dalam Negeri', ts2[1], ts1[1], ts[1], jumlah[1]],
                       ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
                     ]}
                     options={{
-                      title: 'Perbandingan TS2, TS1, TS, dan Jumlah',
+                      title: 'Perbandingan TS-2, TS-1, TS, dan Jumlah Total',
                       chartArea: { width: '70%' },
                       hAxis: {
                         title: 'Data',
