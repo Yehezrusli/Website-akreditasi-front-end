@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table, Col } from 'reactstrap';
+import { Chart } from "react-google-charts";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Container } from 'reactstrap';
 import axios from "axios";
 import { If, Then, Else } from 'react-if';
@@ -13,8 +15,19 @@ class Tabel3b4 extends Component {
       tabel3b4Jurnal: [],
       tabel3b4Seminar: [],
       tabel3b4Tulisan: [],
+      modal: false,
     };
+    this.toggleModal = this.toggleModal.bind(this);
   }
+
+  toggleModal() {
+    if (this.state.modal == true) {
+      this.setState({ modal: false });
+    } else {
+      this.setState({ modal: true });
+    }
+  }
+
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3b4Jurnal').then(data => {
       this.setState({ tabel3b4Jurnal: data.data.result });
@@ -28,11 +41,26 @@ class Tabel3b4 extends Component {
   }
   render() {
     const { tabel3b4Jurnal } = this.state;
+    var ct = 0;
+    var ts_2 = [];
+    var ts_1 = [];
+    var ts_ = [];
+    var jumlah_ = [];
+    var jenis_ = [];
+
     let ts2 = 0;
     let ts1 = 0;
     let ts = 0;
     let total = 0;
     let tabel3_b_4 = tabel3b4Jurnal.map((d, i) => {
+
+      ts_2[i] = d.ts2;
+      ts_1[i] = d.ts1;
+      ts_[i] = d.ts;
+      jumlah_[i] = d.jumlah;
+      jenis_[i] = d.jenisPublikasi;
+      ct++;
+
       if (d.jenisPublikasi == "Jumlah") {
         ts2 = ts2 + d.ts2;
         ts1 = ts1 + d.ts1;
@@ -54,7 +82,15 @@ class Tabel3b4 extends Component {
     });
 
     const { tabel3b4Seminar } = this.state;
+    var seminar_ = [];
+    var ts_2_seminar = [];
+    var ts_1_seminar = [];
+    var ts_seminar = [];
+
     let tabel3_b_4b = tabel3b4Seminar.map((d, i) => {
+      jenis_[ct+i] = d.jenisPublikasi;
+      ts_2[ct+i] = d.ts2;
+      ct++;
       if (d.jenisPublikasi == "Jumlah") {
         ts2 = ts2 + d.ts2;
         ts1 = ts1 + d.ts1;
@@ -78,7 +114,11 @@ class Tabel3b4 extends Component {
     tabel3_b_4.push(tabel3_b_4b);
 
     const { tabel3b4Tulisan } = this.state;
+    var tulisan_ = [];
     let tabel3_b_4c = tabel3b4Tulisan.map((d, i) => {
+      jenis_[ct+i] = d.jenisPublikasi;
+      ts_2[ct+i] = d.ts2;
+      ct++;
       if (d.jenisPublikasi == "Jumlah") {
         ts2 = ts2 + d.ts2;
         ts1 = ts1 + d.ts1;
@@ -107,6 +147,11 @@ class Tabel3b4 extends Component {
         </div>
         <div className="cont_limit">
           <Container fluid="true">
+          <Button color="primary" className="grafik" onClick={() => {
+              this.setState({
+                modal: true
+              });
+            }}>Grafik</Button>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
@@ -134,6 +179,130 @@ class Tabel3b4 extends Component {
             </Table>
           </Container>
         </div>
+
+        <div>
+          <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+            <ModalHeader toggle={this.toggleModal}>Grafik Pengabdian Kepada Masyarakat (PkM) DTPS</ModalHeader>
+            <ModalBody>
+              <Container>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    height="500px"
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Publikasi Ilmiah', 'Jumlah Judul'],
+                      [jenis_[0], ts_2[0]],
+                      [jenis_[1], ts_2[1]],
+                      [jenis_[2], ts_2[2]],
+                      [jenis_[3], ts_2[3]],
+                      [jenis_[4], ts_2[4]],
+                      [jenis_[5], ts_2[5]],
+                      [jenis_[6], ts_2[6]],
+                      [jenis_[7], ts_2[7]],
+                      [jenis_[8], ts_2[8]],
+                      [jenis_[9], ts_2[9]],
+                    ]}
+                    options={{
+                      title: 'Publikasi Ilmiah TS-2',
+                      chartArea: { width: '53%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Publikasi Ilmiah', 'Jumlah Judul'],
+                      [jenis_[0], ts_1[0]],
+                      [jenis_[1], ts_1[1]],
+                      [jenis_[2], ts_1[2]],
+                      [jenis_[3], ts_1[3]],
+                      [jenis_[4], ts_1[4]],
+                      [jenis_[5], ts_1[5]],
+                      [jenis_[6], ts_1[6]],
+                      [jenis_[7], ts_1[7]],
+                      [jenis_[8], ts_1[8]],
+                      [jenis_[9], ts_1[9]],
+                    ]}
+                    options={{
+                      title: 'Publikasi Ilmiah TS-1',
+                      chartArea: { width: '53%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Publikasi Ilmiah', 'Jumlah Judul'],
+                      [jenis_[0], ts_[0]],
+                      [jenis_[1], ts_[1]],
+                      [jenis_[2], ts_[2]],
+                      [jenis_[3], ts_[3]],
+                      [jenis_[4], ts_[4]],
+                      [jenis_[5], ts_[5]],
+                      [jenis_[6], ts_[6]],
+                      [jenis_[7], ts_[7]],
+                      [jenis_[8], ts_[8]],
+                      [jenis_[9], ts_[9]],
+                    ]}
+                    options={{
+                      title: 'Publikasi Ilmiah TS',
+                      chartArea: { width: '53%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={6} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Publikasi Ilmiah', 'Jumlah Judul'],
+                      [jenis_[0], jumlah_[0]],
+                      [jenis_[1], jumlah_[1]],
+                      [jenis_[2], jumlah_[2]],
+                      [jenis_[3], jumlah_[3]],
+                      [jenis_[4], jumlah_[4]],
+                      [jenis_[5], jumlah_[5]],
+                      [jenis_[6], jumlah_[6]],
+                      [jenis_[7], jumlah_[7]],
+                      [jenis_[8], jumlah_[8]],
+                      [jenis_[9], jumlah_[9]],
+                    ]}
+                    options={{
+                      title: 'Jumlah Publikasi Ilmiah Setiap TS',
+                      chartArea: { width: '53%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+              </Container>
+            </ModalBody>
+          </Modal>
+        </div >
       </>
     )
   }

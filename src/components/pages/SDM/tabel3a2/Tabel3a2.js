@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table, Col } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Chart } from "react-google-charts";
 import axios from "axios";
 import { When } from 'react-if';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './Tabel3a2.css';
 
 class Tabel3a2 extends Component {
@@ -35,12 +36,19 @@ class Tabel3a2 extends Component {
     let dtps = 0;
     let jumlah = 0;
     let jumlahdtps = 0;
+    var dosen = [];
+    var rata2 = [];
+    var rata2jumlah = [];
+    var dataFinal;
     let tabel3_a_2 = tabel3a2.map((d, i) => {
       jumlah += d.Jumlah;
       if (d.isDTPS == '1') {
         dtps++;
         jumlahdtps += d.Jumlah;
       }
+      dosen[i] = d.NamaDosen;
+      rata2[i] = d.Rata2;
+      rata2jumlah[i] = d.Rata2_semua;
       return <tr>
         <td>{d.Nomor}</td>
         <td>{d.NamaDosen}</td>
@@ -59,40 +67,110 @@ class Tabel3a2 extends Component {
     return (
       <>
         <div>
-                <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.2 Dosen Pembimbing Utama Tugas Akhir</h3>
-              </div>
-              <div className="cont_limit">
-                <Container fluid={true}>
-                  <Table striped bordered className="text-center">
-                    <thead>
-                      <tr>
-                        <th className="align-middle" rowSpan="3">No.</th>
-                        <th className="align-middle" rowSpan="3">Nama Dosen</th>
-                        <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
-                        <th className="temp align-middle" rowSpan="3" >Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
-                      </tr>
-                      <tr>
-                        <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
-                        <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
-                      </tr>
-                      <tr>
-                        <th className="align-middle">TS-2</th>
-                        <th className="align-middle">TS-1</th>
-                        <th className="align-middle">TS</th>
-                        <th className="align-middle">Rata-rata</th>
-                        <th className="align-middle">TS-2</th>
-                        <th className="align-middle">TS-1</th>
-                        <th className="align-middle">TS</th>
-                        <th className="align-middle">Rata-rata</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {tabel3_a_2}
-                    </tbody>
-                  </Table>
-                </Container>
-              </div>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.2 Dosen Pembimbing Utama Tugas Akhir</h3>
+          </div>
+          <div className="cont_limit">
+            <Container fluid={true}>
+              <Button color="primary" className="grafik" onClick={() => {
+                this.setState({
+                  modal: true
+                });
+              }}>Grafik</Button>
+              <Table striped bordered className="text-center">
+                <thead>
+                  <tr>
+                    <th className="align-middle" rowSpan="3">No.</th>
+                    <th className="align-middle" rowSpan="3">Nama Dosen</th>
+                    <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
+                    <th className="temp align-middle" rowSpan="3" >Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
+                  </tr>
+                  <tr>
+                    <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
+                    <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
+                  </tr>
+                  <tr>
+                    <th className="align-middle">TS-2</th>
+                    <th className="align-middle">TS-1</th>
+                    <th className="align-middle">TS</th>
+                    <th className="align-middle">Rata-rata</th>
+                    <th className="align-middle">TS-2</th>
+                    <th className="align-middle">TS-1</th>
+                    <th className="align-middle">TS</th>
+                    <th className="align-middle">Rata-rata</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tabel3_a_2}
+                </tbody>
+              </Table>
+            </Container>
+          </div>
 
+          <div>
+          <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+            <ModalHeader toggle={this.toggleModal}>Grafik Penggunaan Dana</ModalHeader>
+            <ModalBody>
+              <Container>
+                <Col md={12} style={{ float: 'left' }}>
+                  <Chart
+                    height={'450px'}
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Dosen Pembimbing', 'Jumlah Tugas Akhir'],
+                      [dosen[0], rata2[0]],
+                      [dosen[1], rata2[1]],
+                      [dosen[2], rata2[2]],
+                      [dosen[3], rata2[3]],
+                      [dosen[4], rata2[4]],
+                      [dosen[5], rata2[5]],
+                      [dosen[6], rata2[6]],
+                      [dosen[7], rata2[7]],
+                      [dosen[8], rata2[8]],
+                    ]}
+                    options={{
+                      title: 'Rata-rata Jumlah Mahasiswa yang Dibimbing pada PS yang Diakreditasi',
+                      chartArea: { width: '45%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                <Col md={12} style={{ float: 'left' }}>
+                  <Chart
+                    height={'450px'}
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Dosen Pembimbing', 'Jumlah Tugas Akhir'],
+                      [dosen[0], rata2jumlah[0]],
+                      [dosen[1], rata2jumlah[1]],
+                      [dosen[2], rata2jumlah[2]],
+                      [dosen[3], rata2jumlah[3]],
+                      [dosen[4], rata2jumlah[4]],
+                      [dosen[5], rata2jumlah[5]],
+                      [dosen[6], rata2jumlah[6]],
+                      [dosen[7], rata2jumlah[7]],
+                      [dosen[8], rata2jumlah[8]],
+                    ]}
+                    options={{
+                      title: 'Rata-rata Jumlah Bimbingan di semua Program/Semester',
+                      chartArea: { width: '45%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+              </Container>
+            </ModalBody>
+          </Modal> 
+        </div >
       </>
     )
   }
