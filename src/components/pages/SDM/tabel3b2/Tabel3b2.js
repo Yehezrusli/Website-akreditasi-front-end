@@ -101,19 +101,25 @@ class Tabel3b2 extends Component {
             <ModalHeader toggle={this.toggleModal}>Grafik Pembiayaan Penelitian DTPS</ModalHeader>
             <ModalBody>
               <Container>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                  <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS-2</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tingga dan Mandiri', ts2[0]],
                       ['Lembaga dalam Negeri', ts2[1]],
                       ['Lembaga Luar Negeri', ts2[2]],
                       ['Jumlah', ts2[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS2',
+<<<<<<< HEAD
+=======
+                      title: 'Pembiyaan TS-2',
+>>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -123,19 +129,25 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS-1</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tinggi dan Mandiri', ts1[0]],
                       ['Lembaga dalam Negeri', ts1[1]],
                       ['Lembaga Luar Negeri', ts1[2]],
                       ['Jumlah', ts1[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS1',
+<<<<<<< HEAD
+=======
+                      title: 'Pembiyaan TS-1',
+>>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -146,19 +158,21 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'Jumlah'],
+                      ['Sumber Pembiayaan', 'Jumlah per Jenis'],
                       ['Perguruan Tinggi dan Mandiri', ts[0]],
                       ['Lembaga dalam Negeri', ts[1]],
                       ['Lembaga Luar Negeri', ts[2]],
                       ['Jumlah', ts[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -168,7 +182,10 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Jumlah</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -180,7 +197,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', jumlah[3]],
                     ]}
                     options={{
-                      title: 'Jumlah',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -190,18 +206,24 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col style={{ float: 'left' }}>
+                <Col className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Perbandingan TS2, TS1, TS, dan Jumlah</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ['Sumber Pembiayaan', 'ts2', 'ts1', 'ts', 'jumlah'],
+                      ['Sumber Pembiayaan', 'TS-2', 'TS-1', 'TS', 'Jumlah Total'],
                       ['Perguruan Tinggi dan Mandiri', ts2[0], ts1[0], ts[0], jumlah[0]],
                       ['Lembaga dalam Negeri', ts2[1], ts1[1], ts[1], jumlah[1]],
                       ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
                     ]}
                     options={{
-                      title: 'Perbandingan TS2, TS1, TS, dan Jumlah',
+<<<<<<< HEAD
+=======
+                      title: 'Perbandingan TS-2, TS-1, TS, dan Jumlah Total',
+>>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '70%' },
                       hAxis: {
                         title: 'Data',
