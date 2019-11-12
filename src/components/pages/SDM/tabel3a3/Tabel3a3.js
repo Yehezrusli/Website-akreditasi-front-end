@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table, Col } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Chart } from "react-google-charts";
 import axios from "axios";
 import { When } from 'react-if';
 
@@ -14,14 +16,20 @@ class Tabel3a3 extends Component {
     this.state = {
       tabel3a3: [],
       modal: false,
-    };
+    }
+    this.toggleModal = this.toggleModal.bind(this);
   }
+
   toggleModal() {
     this.setState(prevState => ({
       modal: !prevState.modal
     }));
+    if (this.state.modal == true) {
+      this.setState({ modal: false });
+    } else {
+      this.setState({ modal: true });
+    }
   }
-
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3a3').then(data => {
       this.setState({ tabel3a3: data.data.result });
@@ -35,10 +43,14 @@ class Tabel3a3 extends Component {
     var meanDT = 0;
     var meanDTPS = 0;
     var jumlahSKSDTPS = 0;
+    var dosen = [];
+    var rata2 = [];
     const { tabel3a3 } = this.state;
     let tabel3_a_3 = tabel3a3.map((d, i) => {
       dt = dt + 1;
       meanDT += d.Rata2;
+      dosen[i] = d.Nama;
+      rata2[i] = d.Rata2;
       jumlahSKSDT = jumlahSKSDT + d.Jumlah;
       if (d.isDTPS == "1") {
         dtps = dtps + 1;
@@ -73,6 +85,11 @@ class Tabel3a3 extends Component {
         </div>
         <div className="cont_limit">
           <Container fluid={true}>
+            <Button color="primary" className="grafik" onClick={() => {
+                this.setState({
+                  modal: true
+                });
+              }}>Grafik</Button>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
@@ -111,6 +128,72 @@ class Tabel3a3 extends Component {
             </Table>
           </Container>
         </div>
+
+        <div>
+          <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+            <ModalHeader toggle={this.toggleModal}>Grafik Penggunaan Dana</ModalHeader>
+            <ModalBody>
+              <Container>
+                <Col md={12} style={{ float: 'left' }}>
+                  <Chart
+                    height={'700px'}
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Ekuivalen Waktu Mengajar Penuh', 'Jumlah SKS'],
+                      [dosen[0], rata2[0]],
+                      [dosen[1], rata2[1]],
+                      [dosen[2], rata2[2]],
+                      [dosen[3], rata2[3]],
+                      [dosen[4], rata2[4]],
+                      [dosen[5], rata2[5]],
+                      [dosen[6], rata2[6]],
+                      [dosen[7], rata2[7]],
+                      [dosen[8], rata2[8]],
+                      [dosen[9], rata2[9]],
+                      [dosen[10], rata2[10]],
+                      [dosen[11], rata2[11]],
+                      [dosen[12], rata2[12]],
+                      [dosen[13], rata2[13]],
+                      [dosen[14], rata2[14]],
+                      [dosen[15], rata2[15]],
+                    ]}
+                    options={{
+                      title: 'Rata-rata Jumlah SKS yang Diajar oleh Dosen Tetap Perguruan Tinggi per Semester',
+                      chartArea: { width: '45%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+                
+                <Col md={12} style={{ float: 'left' }}>
+                  <Chart
+                    chartType="BarChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Ekuivalen Waktu Mengajar Penuh', 'Jumlah SKS'],
+                      ['Dosen Tetap(DT)', meanDT/dt],
+                      ['Dosen Tetap Program Studi(DTPS)', meanDTPS/dtps],
+                    ]}
+                    options={{
+                      title: 'Perbandingan Rata-rata Jumlah SKS yang Diajar oleh Dosen Tetap dan Dosen Tetap Program Studi Perguruan Tinggi per Semester',
+                      chartArea: { width: '45%' },
+                      hAxis: {
+                        title: 'Data',
+                        minValue: 0,
+                      },
+                    }}
+                    rootProps={{ 'data-testid': '1' }}
+                  />
+                </Col>
+              </Container>
+            </ModalBody>
+          </Modal> 
+        </div >
       </>
     )
   }
