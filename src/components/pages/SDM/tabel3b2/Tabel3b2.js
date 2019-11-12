@@ -116,10 +116,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts2[3]],
                     ]}
                     options={{
-<<<<<<< HEAD
-=======
-                      title: 'Pembiyaan TS-2',
->>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -144,10 +140,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts1[3]],
                     ]}
                     options={{
-<<<<<<< HEAD
-=======
-                      title: 'Pembiyaan TS-1',
->>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -220,10 +212,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
                     ]}
                     options={{
-<<<<<<< HEAD
-=======
-                      title: 'Perbandingan TS-2, TS-1, TS, dan Jumlah Total',
->>>>>>> 341db5427a6e4fb4bd0c38456bcb42d72b904cbe
                       chartArea: { width: '70%' },
                       hAxis: {
                         title: 'Data',
