@@ -31,7 +31,6 @@ class Mahasiswa extends Component {
 
   render() {
     const { tabel6a } = this.state;
-    var tahun = [];
     let jml2016 = 0;
     let jml2017 = 0;
     let jml2018 = 0;
@@ -50,15 +49,10 @@ class Mahasiswa extends Component {
       } else {
         jml2020++;
       }
-      tahun[0] = jml2016;
-      tahun[1] = jml2017;
-      tahun[2] = jml2018;
-      tahun[3] = jml2019;
-      tahun[4] = jml2020;
       jmltotal++;
 
-      console.log("TESTT", tahun[0]);
-      console.log("TESTT", d.tahun%2016);
+      // console.log("TESTT", tahun[0]);
+      // console.log("TESTT", d.tahun%2016);
 
       return <tr>
         <td>{i + 1}</td>
@@ -117,11 +111,11 @@ class Mahasiswa extends Component {
                   loader={<div>Loading Chart</div>}
                   data={[
                     ['Tahun', 'Jumlah'],
-                    ['2016', tahun[0]],
-                    ['2017', tahun[1]],
-                    ['2018', tahun[2]],
-                    ['2019', tahun[3]],
-                    ['2020', tahun[4]],
+                    ['2016', jml2016],
+                    ['2017', jml2017],
+                    ['2018', jml2018],
+                    ['2019', jml2019],
+                    ['2020', jml2020],
                   ]}
                   options={{
                     title: 'Penelitian yang Melibatkan Mahasiswa',
