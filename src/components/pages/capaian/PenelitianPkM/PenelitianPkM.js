@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';import './PenelitianPkM.css';
 import classnames from 'classnames';
+import Tabel8f1 from './tabel8f1/Tabel8f1';
+import Tabel8f4 from './tabel8f4/Tabel8f4';
+import Tabel8f2 from './tabel8f2/Tabel8f2';
+import Tabel8f3 from './tabel8f3/Tabel8f3';
+
 
 class PenelitianPkM extends Component {
   constructor(props){
@@ -53,25 +58,16 @@ class PenelitianPkM extends Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            {/* <Tabel3b1 /> */}
+            <Tabel8f1 />
           </TabPane>
           <TabPane tabId="2">
-            {/* <Tabel3b2 /> */}
+            <Tabel8f2 />
           </TabPane>
           <TabPane tabId="3">
-            {/* <Tabel3b3 /> */}
+            <Tabel8f3 />
           </TabPane>
           <TabPane tabId="4">
-            {/* <Tabel3b4 /> */}
-          </TabPane>
-          <TabPane tabId="6">
-            {/* <Tabel3b6 /> */}
-          </TabPane>
-          <TabPane tabId="5">
-            {/* <Tabel3b5 /> */}
-          </TabPane>
-          <TabPane tabId="7">
-            {/* <Tabel3b7 /> */}
+            <Tabel8f4 />
           </TabPane>
         </TabContent>
       </div>

@@ -88,6 +88,10 @@ class PengabdianMasyarakat extends Component {
               </thead>
               <tbody>
                 {tabel}
+                <tr>
+                  <td colSpan="5">Jumlah</td>
+                  <td>{tabel.length}</td>
+                </tr>
               </tbody>
             </Table>
           </Container>
