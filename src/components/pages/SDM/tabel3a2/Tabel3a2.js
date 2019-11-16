@@ -108,7 +108,7 @@ class Tabel3a2 extends Component {
 
           <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-            <ModalHeader toggle={this.toggleModal}>Grafik Penggunaan Dana</ModalHeader>
+            <ModalHeader toggle={this.toggleModal}>Grafik Dosen Pembimbing Utama Tugas Akhir</ModalHeader>
             <ModalBody>
               <Container>
                 <Col md={12} style={{ float: 'left' }}>
