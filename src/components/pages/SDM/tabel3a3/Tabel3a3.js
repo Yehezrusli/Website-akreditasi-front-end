@@ -86,10 +86,10 @@ class Tabel3a3 extends Component {
         <div className="cont_limit">
           <Container fluid={true}>
             <Button color="primary" className="grafik" onClick={() => {
-                this.setState({
-                  modal: true
-                });
-              }}>Grafik</Button>
+              this.setState({
+                modal: true
+              });
+            }}>Grafik</Button>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
@@ -169,15 +169,15 @@ class Tabel3a3 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                
+
                 <Col md={12} style={{ float: 'left' }}>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
                     data={[
                       ['Ekuivalen Waktu Mengajar Penuh', 'Jumlah SKS'],
-                      ['Dosen Tetap(DT)', meanDT/dt],
-                      ['Dosen Tetap Program Studi(DTPS)', meanDTPS/dtps],
+                      ['Dosen Tetap(DT)', meanDT / dt],
+                      ['Dosen Tetap Program Studi(DTPS)', meanDTPS / dtps],
                     ]}
                     options={{
                       title: 'Perbandingan Rata-rata Jumlah SKS yang Diajar oleh Dosen Tetap dan Dosen Tetap Program Studi Perguruan Tinggi per Semester',
@@ -192,7 +192,7 @@ class Tabel3a3 extends Component {
                 </Col>
               </Container>
             </ModalBody>
-          </Modal> 
+          </Modal>
         </div >
       </>
     )
