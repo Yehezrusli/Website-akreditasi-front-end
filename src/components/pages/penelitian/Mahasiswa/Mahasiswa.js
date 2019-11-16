@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Table, Col } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Chart } from "react-google-charts";
+import { Container } from 'reactstrap'; 
 import './Mahasiswa.css';
 import axios from "axios";
 
@@ -8,10 +10,19 @@ class Mahasiswa extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabel6a: []
+      tabel6a: [],
+      modal: false,
     };
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
+  toggleModal() {
+    if (this.state.modal == true) {
+      this.setState({ modal: false });
+    } else {
+      this.setState({ modal: true });
+    }
+  }
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel6a').then(data => {
       this.setState({ tabel6a: data.data.result });
@@ -20,14 +31,37 @@ class Mahasiswa extends Component {
 
   render() {
     const { tabel6a } = this.state;
-    let tabel_6_a = tabel6a.map((d, i) => <tr>
-      <td>{i + 1}</td>
-      <td>{d.namaDosen}</td>
-      <td>{d.temaPenelitian}</td>
-      <td>{d.namaMahasiswa}</td>
-      <td>{d.judulKegiatan}</td>
-      <td>{d.tahun}</td>
-    </tr>);
+    let jml2016 = 0;
+    let jml2017 = 0;
+    let jml2018 = 0;
+    let jml2019 = 0;
+    let jml2020 = 0;
+    let jmltotal = 0;
+    let tabel_6_a = tabel6a.map((d, i) => {
+      if (d.tahun == 2016){
+        jml2016++;
+      } else if (d.tahun == 2017){
+        jml2017++;
+      } else if (d.tahun == 2018){
+        jml2018++;
+      } else if (d.tahun == 2019){
+        jml2019++;
+      } else {
+        jml2020++;
+      }
+      jmltotal++;
+
+      // console.log("TESTT", tahun[0]);
+      // console.log("TESTT", d.tahun%2016);
+
+      return <tr>
+        <td>{i + 1}</td>
+        <td>{d.namaDosen}</td>
+        <td>{d.temaPenelitian}</td>
+        <td>{d.namaMahasiswa}</td>
+        <td>{d.judulKegiatan}</td>
+        <td>{d.tahun}</td>
+      </tr>});
 
     return (
       <>
@@ -35,7 +69,13 @@ class Mahasiswa extends Component {
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 6.a Penelitian DTPS yang melibatkan mahasiswa </h3>
         </div>
         <div className="cont_limit">
-          <Container fluid="true">
+        <Container fluid="true">
+          {/* --------- */}
+            <Button color="primary" className="grafik" onClick={() => {
+              this.setState({
+                modal: true
+              });
+            }}>Grafik</Button>
             <Table striped bordered responsive className="text-center">
               <thead>
                 <tr>
@@ -57,6 +97,37 @@ class Mahasiswa extends Component {
             </Table>
           </Container>
         </div>
+
+        <div>
+          <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
+            <ModalHeader toggle={this.toggleModal}>Grafik Tahun Penelitian yang Melibatkan Mahasiswa</ModalHeader>
+            <ModalBody>
+              <Container>
+                <Col md={12} style={{ float: 'left' }}>
+                <Chart
+                  width={'1000px'}
+                  height={'450px'}
+                  chartType="PieChart"
+                  loader={<div>Loading Chart</div>}
+                  data={[
+                    ['Tahun', 'Jumlah'],
+                    ['2016', jml2016],
+                    ['2017', jml2017],
+                    ['2018', jml2018],
+                    ['2019', jml2019],
+                    ['2020', jml2020],
+                  ]}
+                  options={{
+                    title: 'Penelitian yang Melibatkan Mahasiswa',
+                    is3D: true,
+                  }}
+                  rootProps={{ 'data-testid': '2' }}
+                />
+                </Col>
+              </Container>
+            </ModalBody>
+          </Modal> 
+        </div >
       </>
     )
   }
