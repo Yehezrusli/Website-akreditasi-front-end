@@ -101,7 +101,10 @@ class Tabel3b2 extends Component {
             <ModalHeader toggle={this.toggleModal}>Grafik Penelitian DTPS</ModalHeader>
             <ModalBody>
               <Container>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                  <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS-2</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -113,7 +116,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts2[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS-2',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -123,7 +125,10 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS-1</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -135,7 +140,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts1[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS-1',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -146,7 +150,10 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Pembiayaan TS</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -158,7 +165,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts[3]],
                     ]}
                     options={{
-                      title: 'Pembiyaan TS',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -168,7 +174,10 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col md={6} style={{ float: 'left' }}>
+                <Col md={6} className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Jumlah</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -180,7 +189,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', jumlah[3]],
                     ]}
                     options={{
-                      title: 'Jumlah',
                       chartArea: { width: '53%' },
                       hAxis: {
                         title: 'Data',
@@ -190,7 +198,10 @@ class Tabel3b2 extends Component {
                     rootProps={{ 'data-testid': '1' }}
                   />
                 </Col>
-                <Col style={{ float: 'left' }}>
+                <Col className="JarakCol" style={{ float: 'left' }}>
+                <center>
+                    <h6 style={{ margin: '0' }}>Perbandingan TS2, TS1, TS, dan Jumlah</h6>
+                  </center>
                   <Chart
                     chartType="BarChart"
                     loader={<div>Loading Chart</div>}
@@ -201,7 +212,6 @@ class Tabel3b2 extends Component {
                       ['Jumlah', ts2[3], ts1[3], ts[3], jumlah[3]],
                     ]}
                     options={{
-                      title: 'Perbandingan TS-2, TS-1, TS, dan Jumlah Total',
                       chartArea: { width: '70%' },
                       hAxis: {
                         title: 'Data',

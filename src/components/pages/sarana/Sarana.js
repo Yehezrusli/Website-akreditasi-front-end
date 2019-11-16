@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
 import { Table, Col } from 'reactstrap';
 import axios from "axios";
-import { If, Then, Else } from 'react-if';
+import { If, Then, Else, When } from 'react-if';
 import './Sarana.css';
 
 class Sarana extends Component {
@@ -53,6 +53,7 @@ class Sarana extends Component {
         TS_PS = d.TS_PS;
         Rata_rata_PS = d.Rata_rata_PS;
         Rata_rata_UPPS = d.Rata_rata_UPPS;
+        console.log(d.TS_2_UPPS.toFixed(2));
       }
 
       return <tr>
@@ -65,29 +66,42 @@ class Sarana extends Component {
             <td className="text-left">{d.jenisPenggunaan}</td>
           </Else>
         </If>
-        <td>{d.TS_2_UPPS}</td>
-        <td>{d.TS_1_UPPS}</td>
-        <td>{d.TS_UPPS}</td>
-        <td>{d.Rata_rata_UPPS}</td>
-        <td>{d.TS_2_PS}</td>
-        <td>{d.TS_1_PS}</td>
-        <td>{d.TS_PS}</td>
-        <td>{d.Rata_rata_PS}</td>
-      </tr>});
+        <If condition={!!d.TS_2_UPPS}>
+          <Then>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_2_UPPS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_1_UPPS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_UPPS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.Rata_rata_UPPS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_2_PS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_1_PS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.TS_PS))}</td>
+            <td>{new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format((d.Rata_rata_PS))}</td>
+          </Then>
+          <Else>
+            <td>{d.TS_2_UPPS}</td>
+            <td>{d.TS_1_UPPS}</td>
+            <td>{d.TS_UPPS}</td>
+            <td>{d.Rata_rata_UPPS}</td>
+            <td>{d.TS_2_PS}</td>
+            <td>{d.TS_1_PS}</td>
+            <td>{d.TS_PS}</td>
+            <td>{d.Rata_rata_PS}</td>
+          </Else>
+        </If>
+      </tr>
+    });
     return (
       <>
         <div className="Sarana">
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 4 Penggunaan Dana</h3>
         </div>
         <div className="cont_limit">
-        <Container fluid="true">
-          {/* --------- */}
+          <Container fluid="true">
             <Button color="primary" className="grafik" onClick={() => {
               this.setState({
                 modal: true
               });
             }}>Grafik</Button>
-            {/* ----------- */}
             <Table striped bordered responsive className="text-center">
               <thead className="text-center">
                 <tr>
@@ -113,9 +127,6 @@ class Sarana extends Component {
             </Table>
           </Container>
         </div>
-
-        {/* --------------------------------------- */}
-
         <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggleModal}>Grafik Penggunaan Dana</ModalHeader>
@@ -167,7 +178,7 @@ class Sarana extends Component {
                 </Col>
               </Container>
             </ModalBody>
-          </Modal> 
+          </Modal>
         </div >
       </>
     )

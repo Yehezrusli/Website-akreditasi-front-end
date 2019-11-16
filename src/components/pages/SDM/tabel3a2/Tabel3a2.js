@@ -55,12 +55,12 @@ class Tabel3a2 extends Component {
         <td>{d['TS-2']}</td>
         <td>{d['TS-1']}</td>
         <td>{d.TS}</td>
-        <td>{d.Rata2}</td>
+        <td>{d.Rata2.toFixed(2)}</td>
         <td>{d['TS-2b']}</td>
         <td>{d['TS-1b']}</td>
         <td>{d.TSb}</td>
         <td>{d.Rata2b}</td>
-        <td>{d.Rata2_semua}</td>
+        <td>{d.Rata2_semua.toFixed(2)}</td>
       </tr>
     });
 

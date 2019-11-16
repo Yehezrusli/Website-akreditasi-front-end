@@ -66,16 +66,9 @@ class Kinerja extends Component {
           </NavItem>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '6' })}
-              onClick={() => { this.toggle('6'); }}
-            >T 3.b.6  Produk/jasa DTPS 
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
               className={classnames({ active: this.state.activeTab === '7' })}
               onClick={() => { this.toggle('7'); }}
-            >T 3.b.7. Luaran Penelitian/PkM
+            >T 3.b.6. Luaran Penelitian/PkM
             </NavLink>
           </NavItem>
         </Nav>

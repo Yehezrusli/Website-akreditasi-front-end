@@ -116,13 +116,13 @@ class Tabel3a3 extends Component {
                 {tabel3_a_3}
                 <tr>
                   <td colSpan="9">Rata-rata DT</td>
-                  <td>{jumlahSKSDT / dt}</td>
-                  <td>{meanDT / dt}</td>
+                  <td>{(jumlahSKSDT / dt).toFixed(2)}</td>
+                  <td>{(meanDT / dt).toFixed(2)}</td>
                 </tr>
                 <tr>
                   <td colSpan="9">Rata-rata DTPS</td>
-                  <td>{jumlahSKSDTPS / dtps}</td>
-                  <td>{meanDTPS / dtps}</td>
+                  <td>{(jumlahSKSDTPS / dtps).toFixed(2)}</td>
+                  <td>{(meanDTPS / dtps).toFixed(2)}</td>
                 </tr>
               </tbody>
             </Table>
