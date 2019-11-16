@@ -4,6 +4,9 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames';
 import Tabel8f1 from './tabel8f1/Tabel8f1';
 import Tabel8f4 from './tabel8f4/Tabel8f4';
+import Tabel8f2 from './tabel8f2/Tabel8f2';
+import Tabel8f3 from './tabel8f3/Tabel8f3';
+
 
 class PenelitianPkM extends Component {
   constructor(props){
@@ -58,10 +61,10 @@ class PenelitianPkM extends Component {
             <Tabel8f1 />
           </TabPane>
           <TabPane tabId="2">
-            {/* <Tabel3b2 /> */}
+            <Tabel8f2 />
           </TabPane>
           <TabPane tabId="3">
-            {/* <Tabel3b3 /> */}
+            <Tabel8f3 />
           </TabPane>
           <TabPane tabId="4">
             <Tabel8f4 />
