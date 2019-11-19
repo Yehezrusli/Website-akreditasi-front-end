@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import { Container } from 'reactstrap';
+import { Container, Col } from 'reactstrap';
 import axios from "axios";
 import { When } from 'react-if';
+import { Input, FormGroup } from 'reactstrap';
 import './Tabel3b1.css';
 
 class Tabel3b1 extends Component {
@@ -12,21 +13,31 @@ class Tabel3b1 extends Component {
     super(props);
     this.state = {
       tabel3b1: [],
+      tabel3b1Filtered: [],
     };
   }
 
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3b1').then(data => {
-      this.setState({ tabel3b1: data.data.result });
+      this.setState({ tabel3b1: data.data.result, tabel3b1Filtered: data.data.result });
     })
+  }
+  
+  update(e) {
+    var x = this.state.tabel3b;
+    let searchQuery = e.target.value;
+    let regexer = new RegExp(searchQuery, "i");
+    this.setState({
+      tabel3b1Filtered: this.state.tabel3b1.filter(d => searchQuery.length == 0 || d.NamaDosen.match(regexer))
+    });
   }
 
   render() {
     var wilayah = 0;
     var nasional = 0;
     var internasional = 0;
-    const { tabel3b1 } = this.state;
-    let tabel3_b_1 = tabel3b1.map((d, i) => {
+    const { tabel3b1, tabel3b1Filtered } = this.state;
+    let tabel3_b_1 = tabel3b1Filtered.map((d, i) => {
       if (d.Wilayah == "V") {
         wilayah += 1;
       }
@@ -66,6 +77,11 @@ class Tabel3b1 extends Component {
         </div>
         <div className="cont_limit">
           <Container fluid="true">
+            <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+              </FormGroup>
+            </Col>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>
