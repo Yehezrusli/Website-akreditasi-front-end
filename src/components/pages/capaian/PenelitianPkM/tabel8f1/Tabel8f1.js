@@ -38,7 +38,6 @@ class Tabel8f1 extends Component {
         ts1 += d.ts1;
         ts += d.ts;
         jumlah += d.jumlah;
-        console.log(ts2);
       }
       return <If condition={d.jenisPublikasi !== 'Jumlah'}>
         <Then>
@@ -61,7 +60,6 @@ class Tabel8f1 extends Component {
         ts1 += d.ts1;
         ts += d.ts;
         jumlah += d.jumlah;
-        console.log("babi", d.jenisPublikasi);
       }
       return <If condition={d.jenisPublikasi !== 'Jumlah'}>
         <Then>

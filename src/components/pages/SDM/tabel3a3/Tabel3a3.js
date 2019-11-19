@@ -6,6 +6,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
 import axios from "axios";
+import { Input, FormGroup } from 'reactstrap';
 import { When } from 'react-if';
 
 class Tabel3a3 extends Component {
@@ -15,6 +16,7 @@ class Tabel3a3 extends Component {
 
     this.state = {
       tabel3a3: [],
+      tabel3a3Filtered: [],
       modal: false,
     }
     this.toggleModal = this.toggleModal.bind(this);
@@ -32,8 +34,17 @@ class Tabel3a3 extends Component {
   }
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3a3').then(data => {
-      this.setState({ tabel3a3: data.data.result });
+      this.setState({ tabel3a3: data.data.result, tabel3a3Filtered: data.data.result });
     })
+  }
+
+  update(e) {
+    var x = this.state.tabel3a;
+    let searchQuery = e.target.value;
+    let regexer = new RegExp(searchQuery, "i");
+    this.setState({
+      tabel3a3Filtered: this.state.tabel3a3.filter(d => searchQuery.length == 0 || d.Nama.match(regexer))
+    });
   }
 
   render() {
@@ -45,8 +56,8 @@ class Tabel3a3 extends Component {
     var jumlahSKSDTPS = 0;
     var dosen = [];
     var rata2 = [];
-    const { tabel3a3 } = this.state;
-    let tabel3_a_3 = tabel3a3.map((d, i) => {
+    const { tabel3a3, tabel3a3Filtered } = this.state;
+    let tabel3_a_3 = tabel3a3Filtered.map((d, i) => {
       dt = dt + 1;
       meanDT += d.Rata2;
       dosen[i] = d.Nama;
@@ -60,7 +71,7 @@ class Tabel3a3 extends Component {
 
       return <tr>
         <td>{i + 1}</td>
-        <td>{d.Nama}</td>
+        <td style={{ textAlign: 'left', width: 190 }}>{d.Nama}</td>
         <td>
           <When condition={d.isDTPS == "1"}>
             <FontAwesomeIcon icon={faCheck} />
@@ -90,6 +101,11 @@ class Tabel3a3 extends Component {
                 modal: true
               });
             }}>Grafik</Button>
+            <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+              </FormGroup>
+            </Col>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>

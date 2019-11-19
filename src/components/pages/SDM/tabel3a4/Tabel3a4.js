@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Container, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
 import { When } from 'react-if';
-import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Input, FormGroup } from 'reactstrap';
 import './Tabel3a4.css';
 
 class Tabel3a4 extends Component {
@@ -16,6 +16,7 @@ class Tabel3a4 extends Component {
 
     this.state = {
       tabel3a4: [],
+      tabel3a4Filtered: [],
       modal: false,
       tabelNamaDosen: []
     };
@@ -26,34 +27,44 @@ class Tabel3a4 extends Component {
     }));
   }
 
+  update(e) {
+    var x = this.state.tabel3a;
+    let searchQuery = e.target.value;
+    let regexer = new RegExp(searchQuery, "i");
+    this.setState({
+      tabel3a4Filtered: this.state.tabel3a4.filter(d => searchQuery.length == 0 || d.NamaDosen.match(regexer))
+    });
+  }
+
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3a4').then(data => {
-      this.setState({ tabel3a4: data.data.result });
+      this.setState({ tabel3a4: data.data.result, tabel3a4Filtered: data.data.result });
     })
   }
   render() {
     var sesuai = 0;
-    const { tabel3a4 } = this.state;
-    let tabel3_a_4 = tabel3a4.map((d, i) =>{
-      if(d.KesesuaianBidangKeahlian == 'V'){
-        sesuai+=1;
+    const { tabel3a4, tabel3a4Filtered } = this.state;
+    let tabel3_a_4 = tabel3a4Filtered.map((d, i) => {
+      if (d.KesesuaianBidangKeahlian == 'V') {
+        sesuai += 1;
       }
       return <tr>
-      <td>{d.Nomor}</td>
-      <td>{d.NamaDosen}</td>
-      <td>{d.NIDN}</td>
-      <td>{d.Pendidikan}</td>
-      <td>{d.BidangKeahlian}</td>
-      <td>{d.JabatanAkademik}</td>
-      <td>{d.SertifikatPendidik}</td>
-      <td>{d.SertifikatKompetensi}</td>
-      <td>{d.MataKuliahPSYangDiampu}</td>
-      <td>
+        <td>{d.Nomor}</td>
+        <td style={{ textAlign: 'left', width: 190 }}>{d.NamaDosen}</td>
+        <td>{d.NIDN}</td>
+        <td>{d.Pendidikan}</td>
+        <td>{d.BidangKeahlian}</td>
+        <td>{d.JabatanAkademik}</td>
+        <td>{d.SertifikatPendidik}</td>
+        <td>{d.SertifikatKompetensi}</td>
+        <td>{d.MataKuliahPSYangDiampu}</td>
+        <td>
           <When condition={d.KesesuaianBidangKeahlian == "V"}>
             <FontAwesomeIcon icon={faCheck} />
           </When>
-      </td>
-    </tr>});
+        </td>
+      </tr>
+    });
 
     return (
       <>
@@ -62,6 +73,11 @@ class Tabel3a4 extends Component {
         </div>
         <div className="cont_limit_tugas_akhir">
           <Container fluid={true}>
+            <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+              </FormGroup>
+            </Col>
             <Table striped bordered className="text-center">
               <thead>
                 <tr>

@@ -45,14 +45,7 @@ class PenelitianPkM extends Component {
             <NavLink
               className={classnames({ active: this.state.activeTab === '3' })}
               onClick={() => { this.toggle('3'); }}
-            >T 8.f.3 Produk/Jasa
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '4' })}
-              onClick={() => { this.toggle('4'); }}
-            >T 8.f.4 Luaran Penelitian/PkM
+            >T 8.f.3 Luaran Penelitian/PkM
             </NavLink>
           </NavItem>
         </Nav>
@@ -65,9 +58,6 @@ class PenelitianPkM extends Component {
           </TabPane>
           <TabPane tabId="3">
             <Tabel8f3 />
-          </TabPane>
-          <TabPane tabId="4">
-            <Tabel8f4 />
           </TabPane>
         </TabContent>
       </div>

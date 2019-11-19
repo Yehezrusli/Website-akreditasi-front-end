@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Table, Col } from 'reactstrap';
 import { Container } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
 import axios from "axios";
-import { When } from 'react-if';
+import { Input, FormGroup } from 'reactstrap';
 import './Tabel3a2.css';
 
 class Tabel3a2 extends Component {
@@ -15,6 +13,7 @@ class Tabel3a2 extends Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.state = {
       tabel3a2: [],
+      tabel3a2Filtered: [],
       modal: false,
     };
   }
@@ -27,12 +26,24 @@ class Tabel3a2 extends Component {
 
   componentDidMount() {
     axios.get('/back-end/index.php/api/tabel3a2').then(data => {
-      this.setState({ tabel3a2: data.data.result });
+      this.setState({ tabel3a2: data.data.result, tabel3a2Filtered: data.data.result });
     })
   }
 
+  update(e) {
+    console.log(e.target.value);
+    var x = this.state.tabel3a;
+    let searchQuery = e.target.value;
+    let regexer = new RegExp(searchQuery, "i");
+    console.log(regexer);
+    this.setState({
+      tabel3a2Filtered: this.state.tabel3a2.filter(d => searchQuery.length == 0 || d.NamaDosen.match(regexer))
+    });
+  }
+
+
   render(){
-    const { tabel3a2 } = this.state;
+    const { tabel3a2, tabel3a2Filtered } = this.state;
     let dtps = 0;
     let jumlah = 0;
     let jumlahdtps = 0;
@@ -40,7 +51,7 @@ class Tabel3a2 extends Component {
     var rata2 = [];
     var rata2jumlah = [];
     var dataFinal;
-    let tabel3_a_2 = tabel3a2.map((d, i) => {
+    let tabel3_a_2 = tabel3a2Filtered.map((d, i) => {
       jumlah += d.Jumlah;
       if (d.isDTPS == '1') {
         dtps++;
@@ -50,8 +61,8 @@ class Tabel3a2 extends Component {
       rata2[i] = d.Rata2;
       rata2jumlah[i] = d.Rata2_semua;
       return <tr>
-        <td>{d.Nomor}</td>
-        <td>{d.NamaDosen}</td>
+        <td style={{ width:'2%'}}>{d.Nomor}</td>
+        <td style={{textAlign:'left', width: 190}}>{d.NamaDosen}</td>
         <td>{d['TS-2']}</td>
         <td>{d['TS-1']}</td>
         <td>{d.TS}</td>
@@ -63,6 +74,7 @@ class Tabel3a2 extends Component {
         <td>{d.Rata2_semua.toFixed(2)}</td>
       </tr>
     });
+
 
     return (
       <>
@@ -76,6 +88,11 @@ class Tabel3a2 extends Component {
                   modal: true
                 });
               }}>Grafik</Button>
+              <Col md={3} className="go-right input">
+              <FormGroup className="input">
+                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+              </FormGroup>
+            </Col>
               <Table striped bordered className="text-center">
                 <thead>
                   <tr>

@@ -12,15 +12,12 @@ import './Tabel3a1.css';
 class Tabel3a1 extends Component {
   constructor(props) {
     super(props);
-    this.toggleModal = this.toggleModal.bind(this);
     this.state = {
       tabel3a1: [],
       tabel3a1Filtered: [],
       modal: false,
       tabelNamaDosen: [],
-      name: ""
     };
-    this.toggleModal = this.toggleModal.bind(this);
 
   }
   toggleModal() {
@@ -36,12 +33,9 @@ class Tabel3a1 extends Component {
   }
 
   update(e) {
-    // this.setState({ name: e.target.value });
-    // console.log(this.state.name);
     var x = this.state.tabel3a;
     let searchQuery = e.target.value;
     let regexer = new RegExp(searchQuery, "i");
-    console.log("UKULELE", searchQuery);
     this.setState({
       tabel3a1Filtered: this.state.tabel3a1.filter(d => searchQuery.length == 0 || d.NamaDosen.match(regexer) || d.NIDN.includes(searchQuery))
     });
@@ -56,7 +50,7 @@ class Tabel3a1 extends Component {
       }
       return <tr>
         <td>{i + 1}</td>
-        <td>{d.NamaDosen}</td>
+        <td style={{textAlign:'left', width: 140}}>{d.NamaDosen}</td>
         <td>{d.NIDN}</td>
         <td>{d.Pendidikan}</td>
         <td>{d.Pendidikan_doctor}</td>
@@ -69,7 +63,7 @@ class Tabel3a1 extends Component {
         <td>{d.JabatanAkademik}</td>
         <td>{d.SertifikatPendidik}</td>
         <td>{d.SertifikatKompetensi}</td>
-        <td>{d.MataKuliahPSYangDiampu}</td>
+        <td style={{textAlign:'left'}}>{d.MataKuliahPSYangDiampu}</td>
         <td>
           <When condition={d.KesesuaianBidangKeahlian == "V"}>
             <FontAwesomeIcon icon={faCheck} />
