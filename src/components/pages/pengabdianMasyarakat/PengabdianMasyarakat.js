@@ -50,8 +50,6 @@ class PengabdianMasyarakat extends Component {
     let jml2019 = 0;
     let jml2020 = 0;
     let tabel = tabel7Filtered.map((d, i) => {
-
-
       if (d.tahun.substr(0, 4) == "2016") {
         jml2016++;
       } else if (d.tahun.substr(0, 4) == "2017") {
