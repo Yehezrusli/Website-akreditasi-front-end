@@ -61,14 +61,14 @@ class Kinerja extends Component {
             <NavLink
               className={classnames({ active: this.state.activeTab === '5' })}
               onClick={() => { this.toggle('5'); }}
-            >T 3.b.5 Karya ilmiah 
+            >T 3.b.5. Luaran Penelitian/PkM
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '7' })}
-              onClick={() => { this.toggle('7'); }}
-            >T 3.b.6. Luaran Penelitian/PkM
+              className={classnames({ active: this.state.activeTab === '6' })}
+              onClick={() => { this.toggle('6'); }}
+            >T 3.b.6 Karya ilmiah
             </NavLink>
           </NavItem>
         </Nav>
@@ -85,14 +85,11 @@ class Kinerja extends Component {
           <TabPane tabId="4">
             <Tabel3b4 />
           </TabPane>
-          <TabPane tabId="6">
-            <Tabel3b6 />
-          </TabPane>
           <TabPane tabId="5">
-            <Tabel3b5 />
-          </TabPane>
-          <TabPane tabId="7">
             <Tabel3b7 />
+          </TabPane>
+          <TabPane tabId="6">
+            <Tabel3b5 />
           </TabPane>
         </TabContent>
       </div>

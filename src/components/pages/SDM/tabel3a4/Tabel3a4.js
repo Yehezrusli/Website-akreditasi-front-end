@@ -69,7 +69,7 @@ class Tabel3a4 extends Component {
     return (
       <>
         <div>
-          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.4  Dosen Tidak Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi</h3>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.3  Dosen Tidak Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi</h3>
         </div>
         <div className="cont_limit_tugas_akhir">
           <Container fluid={true}>

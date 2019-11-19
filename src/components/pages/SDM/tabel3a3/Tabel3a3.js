@@ -92,7 +92,7 @@ class Tabel3a3 extends Component {
     return (
       <>
         <div>
-          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.3  Ekuivalen Waktu Mengajar Penuh (EWMP) Dosen Tetap Perguruan Tinggi</h3>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.2  Ekuivalen Waktu Mengajar Penuh (EWMP) Dosen Tetap Perguruan Tinggi</h3>
         </div>
         <div className="cont_limit">
           <Container fluid={true}>

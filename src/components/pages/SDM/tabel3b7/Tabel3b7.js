@@ -35,7 +35,7 @@ class Tabel3b7 extends Component {
     return (
       <>
         <div>
-          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.6 Luaran Penelitian/PkM Lainnya oleh DTPS</h3>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.5 Luaran Penelitian/PkM Lainnya oleh DTPS</h3>
         </div>
         <div className="cont_limit">
           <Container fluid="false">

@@ -79,7 +79,7 @@ class Tabel3a2 extends Component {
     return (
       <>
         <div>
-          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.2 Dosen Pembimbing Utama Tugas Akhir</h3>
+          <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.4 Dosen Pembimbing Utama Tugas Akhir</h3>
           </div>
           <div className="cont_limit">
             <Container fluid={true}>
