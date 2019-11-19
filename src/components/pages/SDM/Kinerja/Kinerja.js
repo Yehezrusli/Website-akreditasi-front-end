@@ -7,7 +7,6 @@ import Tabel3b2 from '../tabel3b2/Tabel3b2';
 import Tabel3b3 from '../tabel3b3/Tabel3b3';
 import Tabel3b4 from '../tabel3b4/Tabel3b4';
 import Tabel3b5 from '../tabel3b5/Tabel3b5';
-import Tabel3b6 from '../tabel3b6/Tabel3b6';
 import Tabel3b7 from '../tabel3b7/Tabel3b7';
 
 class Kinerja extends Component {

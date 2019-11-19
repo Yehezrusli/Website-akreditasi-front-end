@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';import './PenelitianPkM.css';
 import classnames from 'classnames';
 import Tabel8f1 from './tabel8f1/Tabel8f1';
-import Tabel8f4 from './tabel8f4/Tabel8f4';
 import Tabel8f2 from './tabel8f2/Tabel8f2';
 import Tabel8f3 from './tabel8f3/Tabel8f3';
 
