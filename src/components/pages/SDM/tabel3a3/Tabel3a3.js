@@ -33,7 +33,7 @@ class Tabel3a3 extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3a3').then(data => {
+    axios.get('/api/tabel3a3').then(data => {
       this.setState({ tabel3a3: data.data.result, tabel3a3Filtered: data.data.result });
     })
   }

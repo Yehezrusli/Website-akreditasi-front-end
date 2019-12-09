@@ -13,7 +13,7 @@ class Tabel3b7 extends Component {
     };
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3b7').then(data => {
+    axios.get('/api/tabel3b7').then(data => {
       this.setState({ tabel3b7: data.data.result });
     })
   }

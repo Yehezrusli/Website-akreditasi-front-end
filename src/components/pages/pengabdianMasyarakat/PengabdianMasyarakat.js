@@ -27,7 +27,7 @@ class PengabdianMasyarakat extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel7').then(data => {
+    axios.get('/api/tabel7').then(data => {
       this.setState({ tabel7: data.data.result, tabel7Filtered: data.data.result });
     })
   }

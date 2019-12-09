@@ -29,13 +29,13 @@ class Tabel3b4 extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3b4Jurnal').then(data => {
+    axios.get('/api/tabel3b4Jurnal').then(data => {
       this.setState({ tabel3b4Jurnal: data.data.result });
     })
-    axios.get('/back-end/index.php/api/tabel3b4Seminar').then(data => {
+    axios.get('/api/tabel3b4Seminar').then(data => {
       this.setState({ tabel3b4Seminar: data.data.result });
     })
-    axios.get('/back-end/index.php/api/tabel3b4Tulisan').then(data => {
+    axios.get('/api/tabel3b4Tulisan').then(data => {
       this.setState({ tabel3b4Tulisan: data.data.result });
     })
   }

@@ -15,7 +15,7 @@ class Tabel8f2 extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel8f2a').then(data => {
+    axios.get('/api/tabel8f2a').then(data => {
       this.setState({ tabel8f2: data.data.result, tabel8f2Filtered: data.data.result });
     })
   }

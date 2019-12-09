@@ -16,7 +16,7 @@ class Tabel3b1 extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3b1').then(data => {
+    axios.get('/api/tabel3b1').then(data => {
       this.setState({ tabel3b1: data.data.result });
     })
   }

@@ -14,7 +14,7 @@ class Tabel3b5 extends Component {
     };
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3b5').then(data => {
+    axios.get('/api/tabel3b5').then(data => {
       this.setState({ tabel3b5: data.data.result, tabel3b5Filtered: data.data.result });
     })
   }

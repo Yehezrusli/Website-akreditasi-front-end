@@ -26,7 +26,7 @@ class Sarana extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel4').then(data => {
+    axios.get('/api/tabel4').then(data => {
       this.setState({ tabel4: data.data.result });
     })
   }

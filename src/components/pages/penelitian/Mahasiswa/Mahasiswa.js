@@ -35,7 +35,7 @@ class Mahasiswa extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel6a').then(data => {
+    axios.get('/api/tabel6a').then(data => {
       this.setState({ tabel6a: data.data.result, tabel6: data.data.result });
     })
   }

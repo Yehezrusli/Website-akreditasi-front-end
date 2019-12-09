@@ -25,7 +25,7 @@ class Tabel3a2 extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel3a2').then(data => {
+    axios.get('/api/tabel3a2').then(data => {
       this.setState({ tabel3a2: data.data.result, tabel3a2Filtered: data.data.result });
     })
   }

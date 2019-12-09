@@ -18,10 +18,10 @@ class Tabel8f1 extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel8f1JurnalMahasiswa').then(data => {
+    axios.get('/api/tabel8f1JurnalMahasiswa').then(data => {
       this.setState({ tabel8f1: data.data.result });
     })
-    axios.get('/back-end/index.php/api/tabel8f1SeminarMahasiswa').then(data => {
+    axios.get('/api/tabel8f1SeminarMahasiswa').then(data => {
       this.setState({ tabel8f1Seminar: data.data.result });
     })
   }

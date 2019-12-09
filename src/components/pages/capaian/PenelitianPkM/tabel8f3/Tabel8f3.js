@@ -13,7 +13,7 @@ class Tabel8f3 extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel8f4').then(data => {
+    axios.get('/api/tabel8f4').then(data => {
       this.setState({ tabel8f4: data.data.result });
     })
   }

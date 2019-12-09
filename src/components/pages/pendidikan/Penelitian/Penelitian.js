@@ -15,7 +15,7 @@ class Penelitian extends Component {
   }
 
   componentDidMount() {
-    axios.get('/back-end/index.php/api/tabel5b').then(data => {
+    axios.get('/api/tabel5b').then(data => {
       this.setState({ tabel5b: data.data.result, tabel5bFiltered: data.data.result });
     })
   }
