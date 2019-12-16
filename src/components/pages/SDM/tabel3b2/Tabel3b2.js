@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
-import { Table, Col } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Table } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import { If, Then, Else } from 'react-if';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from "axios";
@@ -65,36 +65,44 @@ class Tabel3b2 extends Component {
     });
     return (
       <>
-        <div>
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.2 Penelitian DTPS</h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="true">
-            <Button color="primary" className="grafik" onClick={() => {
-              this.setState({
-                modal: true
-              });
-            }}>Grafik</Button>
-            <Table striped bordered className="text-center">
-              <thead>
-                <tr>
-                  <th class="align-middle" rowSpan="2">No.</th>
-                  <th class="align-middle" rowSpan="2">Sumber Pembiayaan</th>
-                  <th class="align-middle" colSpan="3">Jumlah Judul</th>
-                  <th class="align-middle" rowSpan="2">Jumlah</th>
-                </tr>
-                <tr>
-                  <th class="align-middle">TS-2</th>
-                  <th class="align-middle">TS-1</th>
-                  <th class="align-middle">TS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel3_b_2}
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+        </Container>
+        <Container fluid="true">
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Button color="primary" className="grafik" onClick={() => {
+                  this.setState({
+                    modal: true
+                  });
+                }}>Grafik</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Table striped responsive bordered className="text-center">
+                  <thead>
+                    <tr>
+                      <th class="align-middle" rowSpan="2">No.</th>
+                      <th class="align-middle" rowSpan="2">Sumber Pembiayaan</th>
+                      <th class="align-middle" colSpan="3">Jumlah Judul</th>
+                      <th class="align-middle" rowSpan="2">Jumlah</th>
+                    </tr>
+                    <tr>
+                      <th class="align-middle">TS-2</th>
+                      <th class="align-middle">TS-1</th>
+                      <th class="align-middle">TS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel3_b_2}
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container >
 
         <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
@@ -126,7 +134,7 @@ class Tabel3b2 extends Component {
                   />
                 </Col>
                 <Col md={6} className="JarakCol" style={{ float: 'left' }}>
-                <center>
+                  <center>
                     <h6 style={{ margin: '0' }}>Pembiayaan TS-1</h6>
                   </center>
                   <Chart
@@ -151,7 +159,7 @@ class Tabel3b2 extends Component {
                   />
                 </Col>
                 <Col md={6} className="JarakCol" style={{ float: 'left' }}>
-                <center>
+                  <center>
                     <h6 style={{ margin: '0' }}>Pembiayaan TS</h6>
                   </center>
                   <Chart
@@ -175,7 +183,7 @@ class Tabel3b2 extends Component {
                   />
                 </Col>
                 <Col md={6} className="JarakCol" style={{ float: 'left' }}>
-                <center>
+                  <center>
                     <h6 style={{ margin: '0' }}>Jumlah</h6>
                   </center>
                   <Chart
@@ -199,7 +207,7 @@ class Tabel3b2 extends Component {
                   />
                 </Col>
                 <Col className="JarakCol" style={{ float: 'left' }}>
-                <center>
+                  <center>
                     <h6 style={{ margin: '0' }}>Perbandingan TS2, TS1, TS, dan Jumlah</h6>
                   </center>
                   <Chart

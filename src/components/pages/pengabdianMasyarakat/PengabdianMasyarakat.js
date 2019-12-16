@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Col } from 'reactstrap';
+import { Table, Col, Row } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
 import { Container } from 'reactstrap';
@@ -63,53 +63,61 @@ class PengabdianMasyarakat extends Component {
       }
 
       return <tr>
-        <td style={{ width: 20}}>{i + 1}</td>
-        <td style={{textAlign:'left', width: 350}}>{d.namaDosen}</td>
-        <td style={{width: 100}}>{d.temaPKM}</td>
-        <td style={{textAlign:'left', width: 250}}>{d.namaMahasiswa}</td>
-        <td style={{textAlign:'left', width: 100}}>{d.judulKegiatan}</td>
-        <td style={{width: 35}}>{d.tahun}</td>
+        <td style={{ width: 20 }}>{i + 1}</td>
+        <td style={{ textAlign: 'left', width: 350 }}>{d.namaDosen}</td>
+        <td style={{ width: 100 }}>{d.temaPKM}</td>
+        <td style={{ textAlign: 'left', width: 250 }}>{d.namaMahasiswa}</td>
+        <td style={{ textAlign: 'left', width: 100 }}>{d.judulKegiatan}</td>
+        <td style={{ width: 35 }}>{d.tahun}</td>
       </tr>
     });
 
     return (
       <>
-        <div className="TataPamong">
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 7 PkM DTPS yang melibatkan mahasiswa </h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="true">
-            <Button color="primary" className="grafik" onClick={() => {
-              this.setState({
-                modal: true
-              });
-            }}>Grafik</Button>
-            <Col md={3} className="go-right input">
-              <FormGroup className="input">
-                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
-              </FormGroup>
-            </Col>
-            <Table striped bordered responsive className="text-center">
-              <thead>
-                <tr>
-                  <th className="align-middle">No.</th>
-                  <th className="align-middle">Nama Dosen</th>
-                  <th className="align-middle">Tema PkM Sesuai Roadmap</th>
-                  <th className="align-middle">Nama Mahasiswa</th>
-                  <th className="align-middle">Judul Kegiatan</th>
-                  <th className="align-middle">Tahun</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel}
-                <tr>
-                  <td colSpan="5">Jumlah</td>
-                  <td>{tabel.length}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+        </Container>
+        <Container fluid="true">
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Button color="primary" className="grafik" onClick={() => {
+                  this.setState({
+                    modal: true
+                  });
+                }}>Grafik</Button>
+              </Col>
+              <Col md={3} className="ml-auto">
+                <FormGroup className="input">
+                  <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Table striped bordered responsive className="text-center">
+                  <thead>
+                    <tr>
+                      <th className="align-middle">No.</th>
+                      <th className="align-middle">Nama Dosen</th>
+                      <th className="align-middle">Tema PkM Sesuai Roadmap</th>
+                      <th className="align-middle">Nama Mahasiswa</th>
+                      <th className="align-middle">Judul Kegiatan</th>
+                      <th className="align-middle">Tahun</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel}
+                    <tr>
+                      <td colSpan="5">Jumlah</td>
+                      <td>{tabel.length}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
 
         <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>

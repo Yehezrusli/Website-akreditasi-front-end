@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container, Col } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
@@ -68,46 +68,50 @@ class Tabel3a4 extends Component {
 
     return (
       <>
-        <div>
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.3  Dosen Tidak Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi</h3>
-        </div>
-        <div className="cont_limit_tugas_akhir">
-          <Container fluid={true}>
-            <Col md={3} className="go-right input">
-              <FormGroup className="input">
+        </Container>
+        <Container fluid>
+          <div className="px-4">
+            <Row className="mb-2">
+              <Col md={3} className="ml-auto">
                 <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
-              </FormGroup>
-            </Col>
-            <Table striped bordered className="text-center">
-              <thead>
-                <tr>
-                  <th className="align-middle">No.</th>
-                  <th className="align-middle">Nama Dosen</th>
-                  <th className="align-middle">NIDN/NIDK</th>
-                  <th className="align-middle">Pendidikan Pasca Sarjana</th>
-                  <th className="align-middle">Bidang Keahlian</th>
-                  <th className="align-middle">Jabatan Akademik</th>
-                  <th className="align-middle">Sertifikat Pendidik Profesional</th>
-                  <th className="align-middle">Sertifikat Profesi/ Kompensasi/ Industri</th>
-                  <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                  <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel3_a_4}
-                <tr>
-                  <td>Jumlah</td>
-                  <td>{tabel3_a_4.length}</td>
-                  <td colSpan="4"></td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td></td>
-                  <td>{sesuai}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Table striped responsive bordered className="text-center">
+                  <thead>
+                    <tr>
+                      <th className="align-middle">No.</th>
+                      <th className="align-middle">Nama Dosen</th>
+                      <th className="align-middle">NIDN/NIDK</th>
+                      <th className="align-middle">Pendidikan Pasca Sarjana</th>
+                      <th className="align-middle">Bidang Keahlian</th>
+                      <th className="align-middle">Jabatan Akademik</th>
+                      <th className="align-middle">Sertifikat Pendidik Profesional</th>
+                      <th className="align-middle">Sertifikat Profesi/ Kompensasi/ Industri</th>
+                      <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
+                      <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel3_a_4}
+                    <tr>
+                      <td>Jumlah</td>
+                      <td>{tabel3_a_4.length}</td>
+                      <td colSpan="4"></td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td></td>
+                      <td>{sesuai}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </>
     )
   }

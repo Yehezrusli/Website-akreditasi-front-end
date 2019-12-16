@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Table, Col } from 'reactstrap';
+import { Table } from 'reactstrap';
 import { Chart } from "react-google-charts";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import axios from "axios";
-import { If, Then, Else } from 'react-if';
+import { If, Then } from 'react-if';
 import './Tabel3b4.css';
 
 class Tabel3b4 extends Component {
@@ -154,43 +154,47 @@ class Tabel3b4 extends Component {
     tabel3_b_4.push(tabel3_b_4c);
     return (
       <>
-        <div>
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.4 Publikasi Ilmiah DTPS</h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="true">
-            <Button color="primary" className="grafik" onClick={() => {
-              this.setState({
-                modal: true
-              });
-            }}>Grafik</Button>
-            <Table striped bordered className="text-center">
-              <thead>
-                <tr>
-                  <th class="align-middle" rowSpan="2">No.</th>
-                  <th class="align-middle" rowSpan="2">Media Publikasi</th>
-                  <th class="align-middle" colSpan="3">Jumlah Judul</th>
-                  <th class="align-middle" rowSpan="2">Jumlah</th>
-                </tr>
-                <tr>
-                  <th class="align-middle">TS-2</th>
-                  <th class="align-middle">TS-1</th>
-                  <th class="align-middle">TS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel3_b_4}
-                <tr>
-                  <th colSpan="2">Jumlah</th>
-                  <td>{ts2}</td>
-                  <td>{ts1}</td>
-                  <td>{ts}</td>
-                  <td>{total}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+        </Container>
+        <Container fluid="true">
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Button color="primary" className="grafik" onClick={() => {
+                  this.setState({
+                    modal: true
+                  });
+                }}>Grafik</Button>
+                <Table striped responsive bordered className="text-center">
+                  <thead>
+                    <tr>
+                      <th class="align-middle" rowSpan="2">No.</th>
+                      <th class="align-middle" rowSpan="2">Media Publikasi</th>
+                      <th class="align-middle" colSpan="3">Jumlah Judul</th>
+                      <th class="align-middle" rowSpan="2">Jumlah</th>
+                    </tr>
+                    <tr>
+                      <th class="align-middle">TS-2</th>
+                      <th class="align-middle">TS-1</th>
+                      <th class="align-middle">TS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel3_b_4}
+                    <tr>
+                      <th colSpan="2">Jumlah</th>
+                      <td>{ts2}</td>
+                      <td>{ts1}</td>
+                      <td>{ts}</td>
+                      <td>{total}</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
 
         <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>

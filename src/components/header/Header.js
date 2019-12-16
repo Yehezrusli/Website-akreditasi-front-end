@@ -16,6 +16,12 @@ import {
 import { Link } from 'react-router-dom'
 
 import logo from '../../Picture/Logo-Informatika.png';
+import tulisan from '../../Picture/tulisan.png';
+import unpar from '../../Picture/UNPAR.png';
+import informatika from '../../Picture/informatika.png';
+
+
+
 
 class Header extends React.Component {
     constructor(props) {
@@ -41,9 +47,25 @@ class Header extends React.Component {
                             <Col>
                                 <div className="text-center my-3">
                                     <Link to="/">
-                                        <img src={logo} alt="Logo" width="50%" />
+                                        <Row className="justify-content-center">
+                                            <Col md={8} xs={12}>
+                                                <div className="bg-white rounded p-3">
+                                                    <Row className="justify-content-center align-items-center">
+                                                        <Col xs={2}>
+                                                            <img src={unpar} alt="Logo" className="img-fluid" />
+                                                        </Col>
+                                                        <Col xs={2}>
+                                                            <img src={informatika} alt="Logo" className="img-fluid" />
+                                                        </Col>
+                                                        <Col xs={8}>
+                                                            <img src={tulisan} alt="Logo" className="img-fluid" style={{ filter: "invert()" }} />
+                                                        </Col>
+                                                    </Row>
+                                                </div>
+                                            </Col>
+                                        </Row>
                                     </Link>
-                                    <h1 className="text-white font-weight-light my-3">Laporan Kinerja Program Studi 2020</h1>
+                                    <h3 className="text-white font-weight-light my-3">Laporan Kinerja Program Studi 2020</h3>
                                 </div>
                             </Col>
                         </Row>

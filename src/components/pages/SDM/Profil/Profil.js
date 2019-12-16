@@ -29,7 +29,7 @@ class Profil extends Component {
     return (
       <>
         <div>
-          <Nav tabs>
+          <Nav className="justify-content-center" tabs>
             <NavItem>
               <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }}>
                 T 3.a.1 Dosen Tetap Pengampuan Program Studi

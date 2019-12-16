@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import axios from "axios";
 import { If, Then, Else } from 'react-if';
 import './Tabel3b7.css';
@@ -34,26 +34,30 @@ class Tabel3b7 extends Component {
     </tr>);
     return (
       <>
-        <div>
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.b.5 Luaran Penelitian/PkM Lainnya oleh DTPS</h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="false">
-            <Table striped bordered className="text-center">
-              <thead>
-                <tr>
-                  <th class="align-middle">No.</th>
-                  <th class="align-middle">Judul Luaran Penelitian/PkM</th>
-                  <th class="align-middle">Tahun</th>
-                  <th class="align-middle">Keterangan</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel3_b_7}
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+        </Container>
+        <Container fluid>
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Table striped responsive bordered className="text-center">
+                  <thead>
+                    <tr>
+                      <th class="align-middle">No.</th>
+                      <th class="align-middle">Judul Luaran Penelitian/PkM</th>
+                      <th class="align-middle">Tahun</th>
+                      <th class="align-middle">Keterangan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel3_b_7}
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </>
     )
   }

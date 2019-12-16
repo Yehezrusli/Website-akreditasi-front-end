@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
-import { Table, Col } from 'reactstrap';
+import { Table, Col, Row } from 'reactstrap';
 import axios from "axios";
 import { If, Then, Else, When } from 'react-if';
 import './Sarana.css';
@@ -92,41 +92,49 @@ class Sarana extends Component {
     });
     return (
       <>
-        <div className="Sarana">
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 4 Penggunaan Dana</h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="true">
-            <Button color="primary" className="grafik" onClick={() => {
-              this.setState({
-                modal: true
-              });
-            }}>Grafik</Button>
-            <Table striped bordered responsive className="text-center">
-              <thead className="text-center">
-                <tr>
-                  <th class="align-middle" rowSpan="2">No.</th>
-                  <th class="align-middle" rowSpan="2">Jenis Penggunaan</th>
-                  <th class="align-middle" colSpan="4">Unit Pengelola Program Studi (Rp.)</th>
-                  <th class="align-middle" colSpan="4">Program Studi (Rp.)</th>
-                </tr>
-                <tr>
-                  <th class="align-middle max-width">TS-2</th>
-                  <th class="align-middle max-width">TS-1</th>
-                  <th class="align-middle max-width">TS</th>
-                  <th class="align-middle max-width">Rata-rata</th>
-                  <th class="align-middle max-width">TS-2</th>
-                  <th class="align-middle max-width">TS-1</th>
-                  <th class="align-middle max-width">TS</th>
-                  <th class="align-middle max-width">Rata-rata</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel_4}
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+        </Container>
+        <Container fluid="true">
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Button color="primary" className="grafik" onClick={() => {
+                  this.setState({
+                    modal: true
+                  });
+                }}>Grafik</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Table striped bordered responsive className="text-center">
+                  <thead className="text-center">
+                    <tr>
+                      <th class="align-middle" rowSpan="2">No.</th>
+                      <th class="align-middle" rowSpan="2">Jenis Penggunaan</th>
+                      <th class="align-middle" colSpan="4">Unit Pengelola Program Studi (Rp.)</th>
+                      <th class="align-middle" colSpan="4">Program Studi (Rp.)</th>
+                    </tr>
+                    <tr>
+                      <th class="align-middle max-width">TS-2</th>
+                      <th class="align-middle max-width">TS-1</th>
+                      <th class="align-middle max-width">TS</th>
+                      <th class="align-middle max-width">Rata-rata</th>
+                      <th class="align-middle max-width">TS-2</th>
+                      <th class="align-middle max-width">TS-1</th>
+                      <th class="align-middle max-width">TS</th>
+                      <th class="align-middle max-width">Rata-rata</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel_4}
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
         <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggleModal}>Grafik Penggunaan Dana</ModalHeader>

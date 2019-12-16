@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { Container, Col } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import axios from "axios";
 import { Input, FormGroup } from 'reactstrap';
 import './Penelitian.css';
@@ -40,33 +40,37 @@ class Penelitian extends Component {
     </tr>);
     return (
       <>
-        <div className="Penelitian">
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 5.b Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran </h3>
-        </div>
-        <div className="cont_limit">
-          <Container fluid="true">
-            <Col md={3} className="go-right input">
-              <FormGroup className="input">
-                <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
-              </FormGroup>
-            </Col>
+        </Container>
+        <Container fluid>
+          <div className="px-4">
+            <Row>
+              <Col>
+                <Col md={3} className="go-right input">
+                  <FormGroup className="input">
+                    <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
+                  </FormGroup>
+                </Col>
 
-            <Table striped bordered responsive className="text-center">
-              <thead>
-                <tr>
-                  <th class="align-middle">No.</th>
-                  <th class="align-middle">Judul Penelitian/PkM</th>
-                  <th class="align-middle">Nama Dosen</th>
-                  <th class="align-middle">Mata Kuliah</th>
-                  <th class="align-middle">Bentuk Integrasi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tabel_5_b}
-              </tbody>
-            </Table>
-          </Container>
-        </div>
+                <Table striped bordered responsive className="text-center">
+                  <thead>
+                    <tr>
+                      <th class="align-middle">No.</th>
+                      <th class="align-middle">Judul Penelitian/PkM</th>
+                      <th class="align-middle">Nama Dosen</th>
+                      <th class="align-middle">Mata Kuliah</th>
+                      <th class="align-middle">Bentuk Integrasi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel_5_b}
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </>
     )
   }

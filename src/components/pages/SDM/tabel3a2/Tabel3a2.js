@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Col } from 'reactstrap';
+import { Table, Col, Row } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Chart } from "react-google-charts";
@@ -42,7 +42,7 @@ class Tabel3a2 extends Component {
   }
 
 
-  render(){
+  render() {
     const { tabel3a2, tabel3a2Filtered } = this.state;
     let dtps = 0;
     let jumlah = 0;
@@ -61,8 +61,8 @@ class Tabel3a2 extends Component {
       rata2[i] = d.Rata2;
       rata2jumlah[i] = d.Rata2_semua;
       return <tr>
-        <td style={{ width:'2%'}}>{d.Nomor}</td>
-        <td style={{textAlign:'left', width: 190}}>{d.NamaDosen}</td>
+        <td style={{ width: '2%' }}>{d.Nomor}</td>
+        <td style={{ textAlign: 'left', width: 190 }}>{d.NamaDosen}</td>
         <td>{d['TS-2']}</td>
         <td>{d['TS-1']}</td>
         <td>{d.TS}</td>
@@ -78,52 +78,58 @@ class Tabel3a2 extends Component {
 
     return (
       <>
-        <div>
+        <Container>
           <h3 className="text-black font-weight-light my-5 text-center">Tabel 3.a.4 Dosen Pembimbing Utama Tugas Akhir</h3>
-          </div>
-          <div className="cont_limit">
-            <Container fluid={true}>
-              <Button color="primary" className="grafik" onClick={() => {
-                this.setState({
-                  modal: true
-                });
-              }}>Grafik</Button>
-              <Col md={3} className="go-right input">
-              <FormGroup className="input">
+        </Container>
+        <Container fluid={true}>
+          <div className="px-4">
+            <Row className="mb-3">
+              <Col className="mb-2">
+                <Button color="primary" onClick={() => {
+                  this.setState({
+                    modal: true
+                  });
+                }}>Grafik</Button>
+              </Col>
+              <Col md={3} className="ml-auto">
                 <Input type="text" onChange={this.update.bind(this)} placeholder="Cari Dosen" />
-              </FormGroup>
-            </Col>
-              <Table striped bordered className="text-center">
-                <thead>
-                  <tr>
-                    <th className="align-middle" rowSpan="3">No.</th>
-                    <th className="align-middle" rowSpan="3">Nama Dosen</th>
-                    <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
-                    <th className="temp align-middle" rowSpan="3" >Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
-                  </tr>
-                  <tr>
-                    <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
-                    <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
-                  </tr>
-                  <tr>
-                    <th className="align-middle">TS-2</th>
-                    <th className="align-middle">TS-1</th>
-                    <th className="align-middle">TS</th>
-                    <th className="align-middle">Rata-rata</th>
-                    <th className="align-middle">TS-2</th>
-                    <th className="align-middle">TS-1</th>
-                    <th className="align-middle">TS</th>
-                    <th className="align-middle">Rata-rata</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tabel3_a_2}
-                </tbody>
-              </Table>
-            </Container>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Table striped responsive bordered className="text-center">
+                  <thead>
+                    <tr>
+                      <th className="align-middle" rowSpan="3">No.</th>
+                      <th className="align-middle" rowSpan="3">Nama Dosen</th>
+                      <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
+                      <th className="temp align-middle" rowSpan="3" >Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
+                    </tr>
+                    <tr>
+                      <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
+                      <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
+                    </tr>
+                    <tr>
+                      <th className="align-middle">TS-2</th>
+                      <th className="align-middle">TS-1</th>
+                      <th className="align-middle">TS</th>
+                      <th className="align-middle">Rata-rata</th>
+                      <th className="align-middle">TS-2</th>
+                      <th className="align-middle">TS-1</th>
+                      <th className="align-middle">TS</th>
+                      <th className="align-middle">Rata-rata</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tabel3_a_2}
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
           </div>
+        </Container>
 
-          <div>
+        <div>
           <Modal size={'xl'} isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
             <ModalHeader toggle={this.toggleModal}>Grafik Dosen Pembimbing Utama Tugas Akhir</ModalHeader>
             <ModalBody>
@@ -186,7 +192,7 @@ class Tabel3a2 extends Component {
                 </Col>
               </Container>
             </ModalBody>
-          </Modal> 
+          </Modal>
         </div >
       </>
     )
