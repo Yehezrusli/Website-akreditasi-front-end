@@ -24,7 +24,7 @@ class DayaSaing extends Component {
   render() {
     return (
       <div>
-        <Nav tabs>
+        <Nav className="justify-content-center" tabs>
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}

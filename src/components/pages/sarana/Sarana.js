@@ -97,7 +97,7 @@ class Sarana extends Component {
         </Container>
         <Container fluid="true">
           <div className="px-4">
-            <Row>
+            <Row className="mb-2">
               <Col>
                 <Button color="primary" className="grafik" onClick={() => {
                   this.setState({

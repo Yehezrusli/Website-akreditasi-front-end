@@ -159,13 +159,17 @@ class Tabel3b4 extends Component {
         </Container>
         <Container fluid="true">
           <div className="px-4">
-            <Row>
+            <Row className="mb-2">
               <Col>
                 <Button color="primary" className="grafik" onClick={() => {
                   this.setState({
                     modal: true
                   });
                 }}>Grafik</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
                 <Table striped responsive bordered className="text-center">
                   <thead>
                     <tr>

@@ -77,7 +77,7 @@ class Mahasiswa extends Component {
         <Container fluid="true">
           <div className="px-4">
             <Row>
-              <Col>
+              <Col className="mb-1">
                 <Button color="primary" className="grafik" onClick={() => {
                   this.setState({
                     modal: true

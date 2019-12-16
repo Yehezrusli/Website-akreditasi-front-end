@@ -13,14 +13,6 @@ class PrestasiMahasiswa extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       activeTab: '1',
-      tabel3b1: [],
-      tabel3b2: [],
-      tabel3b3: [],
-      tabel3b4Jurnal: [],
-      tabel3b4Seminar: [],
-      tabel3b4Tulisan: [],
-      tabel3b6: [],
-      tabel3b5: []
     };
   }
 
@@ -62,7 +54,7 @@ class PrestasiMahasiswa extends Component {
 
     return (
       <div>
-        <Nav tabs>
+        <Nav className="justify-content-center" tabs>
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
@@ -85,7 +77,7 @@ class PrestasiMahasiswa extends Component {
             </div>
             <div className="cont_limit">
               <Container fluid="true">
-                <Table striped bordered className="text-center">
+                <Table striped responsive bordered className="text-center">
                   <thead>
                     <tr>
                       <th class="align-middle" rowSpan="2">No.</th>
@@ -154,7 +146,7 @@ class PrestasiMahasiswa extends Component {
             </div>
             <div className="cont_limit">
               <Container fluid="true">
-              <Table striped bordered className="text-center">
+              <Table striped responsive bordered className="text-center">
                   <thead>
                     <tr>
                       <th class="align-middle" rowSpan="2">No.</th>

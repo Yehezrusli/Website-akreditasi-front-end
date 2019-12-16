@@ -20,7 +20,7 @@ class TataPamong extends Component {
           <div className="px-4">
             <Row>
               <Col>
-                <Table striped bordered>
+                <Table striped responsive bordered>
                   <thead className="text-center">
                     <tr>
                       <th class="align-middle" rowSpan="2">No.</th>

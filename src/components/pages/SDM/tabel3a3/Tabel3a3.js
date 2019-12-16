@@ -96,8 +96,8 @@ class Tabel3a3 extends Component {
         </Container>
         <Container fluid>
           <div className="px-4">
-            <Row>
-              <Col>
+            <Row className="mb-2">
+              <Col className="mb-1">
                 <Button color="primary" className="grafik" onClick={() => {
                   this.setState({
                     modal: true

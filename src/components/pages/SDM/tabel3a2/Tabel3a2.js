@@ -83,7 +83,7 @@ class Tabel3a2 extends Component {
         </Container>
         <Container fluid={true}>
           <div className="px-4">
-            <Row className="mb-3">
+            <Row className="pb-3">
               <Col className="mb-2">
                 <Button color="primary" onClick={() => {
                   this.setState({

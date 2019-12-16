@@ -15,7 +15,7 @@ class Input extends Component {
         <h3 className="text-black font-weight-light my-5 text-center">Tabel 2.a Seleksi Mahasiswa</h3>
       </div>
       <Container>
-        <Table striped bordered className="text-center">
+        <Table striped responsive bordered className="text-center">
           <thead>
             <tr>
               <th class="align-middle" rowSpan = "2">Tahun Akademik</th>
